@@ -1,0 +1,67 @@
+/* Container for the entire form */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading style */
+.form-container h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Style for form fields */
+.form-field {
+    margin-bottom: 15px;
+}
+
+/* Style for the error message */
+.ms-TextField-errorMessage {
+    color: red;
+    font-size: 12px;
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for the submit button */
+.submit-button {
+    background-color: #0078d4;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+/* Style for the login button */
+.login-button {
+    background-color: #0078d4;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+/* Hover effects for buttons */
+.submit-button:hover {
+    background-color: #005a9e;
+}
+
+.login-button:hover {
+    background-color: #005a9e;
+}
+
+/* Style for the success message */
+.success-message {
+    color: green;
+    text-align: center;
+    margin-top: 15px;
+}

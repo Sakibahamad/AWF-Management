@@ -1,0 +1,15 @@
+
+
+.slider-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    margin: 100px auto;       
+}
+
+.slider {
+    width: 100%;           
+    max-width: 1200px;    
+    height: auto;         
+    border-radius: 10px;    
+}
