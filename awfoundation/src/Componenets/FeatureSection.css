@@ -1,32 +1,12 @@
-/* Container Styling */
-.container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-/* Center Alignment and Text */
-.center {
-  text-align: center;
-}
-
-.center h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.center p.lead {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  color: #666;
-}
-
 /* Features Section */
 #feature {
   padding: 60px 0;
   background-color: #f9f9f9;
+  max-height: 600px; /* Limit the height of the section */
+  overflow-y: auto; /* Add vertical scrollbar when content overflows */
 }
 
+/* Adjust features container to scroll */
 .features {
   margin-top: 22px;
   display: flex;
@@ -34,6 +14,7 @@
   justify-content: space-between;
 }
 
+/* Individual feature items */
 .feature-item {
   flex: 1 1 30%; /* Flexbox to ensure three items per row */
   max-width: 30%;

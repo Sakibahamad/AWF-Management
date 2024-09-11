@@ -9,6 +9,7 @@ import FeatureSection from './FeatureSection.js';
 import Info from '../Componenets/Info.js';
 import Bottom from './Bottom.js';
 import Gallary from './Gallary.js';
+import Footer from './Footer.js';
 
 function Homepage1() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -121,6 +122,7 @@ function Homepage1() {
         <Info />
         <Gallary />
         <Bottom />
+        <Footer />
       </main>
     </div>
   );

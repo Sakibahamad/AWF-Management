@@ -1,18 +1,20 @@
+/* Main container */
 .app {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto; /* Enables vertical scrolling */
-  position: relative; /* Added to prevent layout shifts */
+  overflow-y: auto;
+  position: relative; /* Prevent layout shifts */
 }
 
+/* Header styles */
 .app-header {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; 
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust transparency */
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -20,11 +22,12 @@
   z-index: 1000;
 }
 
+/* Navbar styles */
 .navbar {
-  margin-left: 122px;
+  margin-left: 9px;
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 162px); /* Calculating remaining space dynamically */
+  width: calc(100% - 40px); /* Adjusted spacing */
   align-items: center;
 }
 
@@ -36,7 +39,7 @@
 .navbar-left a {
   color: white;
   text-decoration: none;
-  margin: 0 39px;
+  margin: 0 20px; /* Adjusted spacing for better alignment */
   font-size: 18px;
 }
 
@@ -51,10 +54,11 @@
   cursor: pointer;
 }
 
+/* Dropdown styles */
 .dropdown-menu {
   position: absolute;
-  top: 60px;
-  right: 34px;
+  top: 64px;
+  right: 21px;
   background-color: #333;
   color: white;
   border-radius: 5px;
@@ -78,15 +82,15 @@
 
 /* Hamburger menu */
 .hamburger-menu {
-  display: none; /* Hide by default */
+  display: none; /* Hidden by default */
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
   height: 20px;
   cursor: pointer;
   position: fixed;
-  top: 69px; /* Adjust to ensure it doesn't overlap with header */
-  left: 4px;
+  top: 69px;
+  left: 20px; /* Align with navbar */
   z-index: 1001;
 }
 
@@ -96,41 +100,81 @@
   border-radius: 2px;
 }
 
-/* Advika image styling */
+/* Vertical Navigation Bar */
+.vertical-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent like header */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.vertical-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.vertical-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Close button for VerticalNav */
+.vertical-nav .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Advika image */
 .advika-image {
-  margin-left: -120px;
+  margin-left: 0;
   width: 109px;
   height: auto;
-  margin-right: 20px; /* Add spacing between image and navigation links */
+  margin-right: 20px; /* Spacing between image and navigation links */
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .navbar {
     margin-left: 0;
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 
   .navbar-left {
-    display: none; /* Hide navbar links on small screens */
+    display: none;
   }
 
   .hamburger-menu {
-    display: flex; /* Show hamburger menu on small screens */
+    display: flex; /* Visible on smaller screens */
   }
 
   .advika-image {
-    display: none; /* Hide image on smaller screens */
+    display: none;
+  }
+
+  .vertical-nav {
+    width: 200px;
   }
 }
 
 /* Additional styles for contact section */
 .contact-section {
-  position: relative;
   padding: 20px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.9); /* Ensures visibility */
-  margin-top: 60px; /* Adjusted for the height of the fixed header */
+  margin-top: 60px; /* Adjusted for fixed header height */
 }
 
 .contact-image {

@@ -1,11 +1,11 @@
-
 .form-container {
     max-width: 400px;
     margin: 31px auto;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    background-color: #fafeff;}
+    background-color: #fafeff;
+}
 
 .form-header {
     display: flex;
@@ -20,9 +20,9 @@
     color: #333;
 }
 
+/* Remove clear-icon class styling */
 .clear-icon {
-    font-size: 1.25rem;
-    color: #ff0000;
+    display: none;
 }
 
 .form-field {
@@ -35,6 +35,7 @@
 
 .button-container {
     display: flex;
+    justify-content: space-between; /* Align buttons to both ends */
     margin-top: 20px;
 }
 
@@ -42,11 +43,29 @@
     background-color: #0078d4;
     color: #fff;
     border: none;
-    margin-right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
 }
 
 .submit-button:hover {
     background-color: #005a9e;
+}
+
+.cancel-button {
+    background-color: #d83b01; /* Error color for Cancel */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.cancel-button:hover {
+    background-color: #a80000; /* Darker shade for hover */
+    color: #fff; /* Change text color on hover if needed */
 }
 
 .forgot-password-container {

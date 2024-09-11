@@ -1,0 +1,178 @@
+/* Container for the Read component */
+.read-container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    position: relative; 
+}
+
+/* Home image styling */
+.read-container img {
+    top: 10px; /* Adjust based on your layout */
+    left: 5px; /* Adjust based on your layout */
+    width: 80px; /* Set the desired width */
+    height: 40px; /* Set the desired height */
+    cursor: pointer; /* Show that it's clickable */
+}
+
+/* Heading style */
+.read-heading {
+    margin-top: 4px;
+    text-align: center;
+    color: #0078d4;
+    margin-bottom: 20px;
+    margin-left: -56px; /* Moves heading next to the image */
+}
+
+/* Add button styling */
+.add-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: darkgreen;
+}
+
+/* Search bar styling */
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Table styling */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.student-table th, .student-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.student-table th {
+    background-color: #0078d4;
+    color: white;
+    font-weight: bold;
+}
+
+.student-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action buttons */
+.update-button, .delete-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.update-button {
+    background-color: #0078d4;
+    color: white;
+}
+
+.update-button:hover {
+    background-color: #005ea6;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+/* Modal styles */
+.modal-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-heading {
+    font-size: 20px;
+    color: #0078d4;
+    margin: 0;
+}
+
+.modal-close-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.confirm-button, .cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-button {
+    background-color: red;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: darkred;
+}
+
+.cancel-button {
+    background-color: #fa0606;
+    color: rgb(241, 238, 238);
+}
+
+.cancel-button:hover {
+    background-color: #940101;
+}

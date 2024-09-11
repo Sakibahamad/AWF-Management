@@ -39,18 +39,6 @@ const Bottom= () => {
           </div>
         </div>
       </section>
-
-      <div className="top-bar">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div style={{ color: 'white', textAlign: 'center' }}>
-                © Copyright <b>Advika Welfare Foundation</b>. All Rights Reserved.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

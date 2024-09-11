@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, PrimaryButton, Link, IconButton } from '@fluentui/react';
+import { TextField, PrimaryButton, DefaultButton, Link } from '@fluentui/react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
@@ -66,7 +66,7 @@ function Login() {
         e.preventDefault();
         if (validate()) {
             setIsSubmitted(true);
-            navigate('/homepage'); // Navigate to Homepage1 after successful login
+            navigate('/homepage'); // Navigate to Homepage after successful login
         } else {
             setIsSubmitted(false);
         }
@@ -84,19 +84,13 @@ function Login() {
             password: ''
         });
         setIsSubmitted(false);
+        navigate('/homepage1'); // Navigate to Homepage1 on cancel
     };
 
     return (
         <div className="form-container">
             <div className="form-header">
                 <h4>Login</h4>
-                <IconButton
-                    iconProps={{ iconName: 'Cancel' }}
-                    title="Clear"
-                    ariaLabel="Clear"
-                    onClick={handleCancel}
-                    className="clear-icon"
-                />
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="form-field">
@@ -136,6 +130,7 @@ function Login() {
 
                 <div className="button-container">
                     <PrimaryButton type="submit" className="submit-button">Login</PrimaryButton>
+                    <DefaultButton onClick={handleCancel} className="cancel-button">Cancel</DefaultButton>
                 </div>
             </form>
             <div className="forgot-password-container">

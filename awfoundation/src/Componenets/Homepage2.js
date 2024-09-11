@@ -1,17 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Homepage1.css';
+import './Homepage2.css';
 import profile from '../Componenets/profile2.jpg';
 import backgroundImage from '../Componenets/image.jpg';
 import advika from '../Componenets/Advika.png'; 
 import { useNavigate } from 'react-router-dom';
 import VerticalNav from './VerticalNav'; 
-import FeatureSection from './FeatureSection';
+import FeatureSection from './FeatureSection';  
 import Bottom from './Bottom';
 import Gallary from './Gallary';
 
 function Homepage2() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true); // Set to true to make sidebar visible by default
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const sidebarRef = useRef(null);
@@ -20,14 +20,9 @@ function Homepage2() {
     setIsDropdownVisible((prev) => !prev);
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarVisible((prev) => !prev);
-  };
-
   const handleMenuItemClick = (path) => {
     navigate(path);
     setIsDropdownVisible(false);
-    setIsSidebarVisible(false);
   };
 
   useEffect(() => {
@@ -41,7 +36,7 @@ function Homepage2() {
       if (
         sidebarRef.current && !sidebarRef.current.contains(event.target)
       ) {
-        setIsSidebarVisible(false);
+        setIsSidebarVisible(true); // Ensures the sidebar stays visible
       }
     };
 
@@ -68,8 +63,8 @@ function Homepage2() {
             <img src={advika} alt="Advika" className="advika-image" /> 
             <a href="#home">Home</a>
             <a href="" onClick={() => navigate('/feature')}>About Us</a>
-              <a href="" onClick={() => navigate('/Bottom')}>Contact Us</a>
-              <a href="" onClick={() => navigate('/Gallary ')}>Gallery</a>
+            <a href="" onClick={() => navigate('/Bottom')}>Contact Us</a>
+            <a href="" onClick={() => navigate('/Gallary')}>Gallery</a>
           </div>
           <div className="navbar-right">
             <img
@@ -88,11 +83,7 @@ function Homepage2() {
       </header>
 
       <main>
-        <div className="hamburger-menu" onClick={toggleSidebar}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
+        {/* No need for the hamburger menu since sidebar is visible by default */}
         <VerticalNav 
           isSidebarVisible={isSidebarVisible}
           handleMenuItemClick={handleMenuItemClick}
