@@ -2,28 +2,26 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
-import AddExpense from './AddExpense'; // Ensure this path is correct
-import './ExpenseTable.css'; // Ensure you have styles for the icons and other elements
 import homen from './Home.jpg'; // Home image
 import updateIcon from './update.png'; // Ensure this path is correct
-import deleteIcon from './delete.png'; // Ensure this path is correct
+import deleteIcon from './delete.png'; // Delete image
 
-const ExpenseTable = () => {
+const InventoryTable = () => {
     const [records, setRecords] = useState([]);
     const [filteredRecords, setFilteredRecords] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedRecord, setSelectedRecord] = useState(null);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' }); // Sorting state
+    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
     const navigate = useNavigate();
 
     // Fetch records data
     const fetchRecords = async () => {
         try {
-            const response = await axios.get('https://66cef006901aab24842037e7.mockapi.io/Expence');
+            const response = await axios.get('https://667d27ca297972455f63c326.mockapi.io/crud-Donation');
             setRecords(response.data);
-            setFilteredRecords(response.data); // Initialize with all records
+            setFilteredRecords(response.data);
         } catch (error) {
             console.error('Error fetching records:', error);
         }
@@ -69,14 +67,14 @@ const ExpenseTable = () => {
     // Determine the sort icon to display
     const getSortIcon = (key) => {
         if (sortConfig.key === key) {
-            return sortConfig.direction === 'asc' ? '⬆️' : '⬇️'; // Up or down arrow
+            return sortConfig.direction === 'asc' ? '⬆️' : '⬇️';
         }
-        return '↕️'; // Neutral arrow
+        return '↕️';
     };
 
     // Navigate to Update page
     const handleUpdate = (id) => {
-        navigate(`/ExpenseUpdate/${id}`);
+        navigate(`/inventory/update/${id}`);
     };
 
     // Navigate to Homepage2
@@ -94,7 +92,7 @@ const ExpenseTable = () => {
     const handleDelete = async () => {
         if (selectedRecord) {
             try {
-                await axios.delete(`https://66cef006901aab24842037e7.mockapi.io/Expence/${selectedRecord.id}`);
+                await axios.delete(`https://667d27ca297972455f63c326.mockapi.io/crud-Donation/${selectedRecord.id}`);
                 setRecords(prevRecords => prevRecords.filter(record => record.id !== selectedRecord.id));
                 setFilteredRecords(prevFiltered => prevFiltered.filter(record => record.id !== selectedRecord.id));
                 setIsDeleteModalOpen(false);
@@ -113,13 +111,7 @@ const ExpenseTable = () => {
 
     // Open create modal
     const handleAddRecord = () => {
-        setIsCreateModalOpen(true);
-    };
-
-    // Close create modal and refresh the records list
-    const closeCreateModal = () => {
-        setIsCreateModalOpen(false);
-        fetchRecords(); // Refresh the records list after closing the Create modal
+        navigate('/inventory/create'); // Navigate to AddInventory page
     };
 
     return (
@@ -132,7 +124,7 @@ const ExpenseTable = () => {
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 
             />
-            <h2 className="read-heading">Expense Records</h2>
+            <h2 className="read-heading">Inventory Records</h2>
             <button className="add-button" onClick={handleAddRecord}>Add</button>
             <div className="search-bar">
                 <input
@@ -149,17 +141,17 @@ const ExpenseTable = () => {
                         <th onClick={() => handleSort('date')}>
                             Date {getSortIcon('date')}
                         </th>
-                        <th onClick={() => handleSort('reason')}>
-                            Reason {getSortIcon('reason')}
+                        <th onClick={() => handleSort('itemName')}>
+                            itemName {getSortIcon('itemName')}
                         </th>
                         <th onClick={() => handleSort('category')}>
                             Category {getSortIcon('category')}
                         </th>
-                        <th onClick={() => handleSort('amount')}>
-                            Amount {getSortIcon('amount')}
+                        <th onClick={() => handleSort('quantity')}>
+                            Quantity {getSortIcon('quantity')}
                         </th>
-                        <th onClick={() => handleSort('paymentMode')}>
-                            Payment Mode {getSortIcon('paymentMode')}
+                        <th onClick={() => handleSort('unitOfMeasurement')}>
+                            Unit of Measurement {getSortIcon('unitOfMeasurement')}
                         </th>
                         <th onClick={() => handleSort('description')}>
                             Description {getSortIcon('description')}
@@ -172,10 +164,10 @@ const ExpenseTable = () => {
                         filteredRecords.map(record => (
                             <tr key={record.id}>
                                 <td>{record.date}</td>
-                                <td>{record.reason}</td>
+                                <td>{record.itemName}</td>
                                 <td>{record.category}</td>
-                                <td>{record.amount}</td>
-                                <td>{record.paymentMode}</td>
+                                <td>{record.quantity}</td>
+                                <td>{record.unitOfMeasurement}</td>
                                 <td>{record.description}</td>
                                 <td>
                                     <img
@@ -223,18 +215,8 @@ const ExpenseTable = () => {
                     </div>
                 </div>
             </Modal>
-
-            {/* Create Modal */}
-            <Modal
-                isOpen={isCreateModalOpen}
-                onDismiss={closeCreateModal}
-                isBlocking={false}
-                containerClassName="modal-container"
-            >
-                <AddExpense handlePageChange={closeCreateModal} />
-            </Modal>
         </div>
     );
 };
 
-export default ExpenseTable;
+export default InventoryTable;

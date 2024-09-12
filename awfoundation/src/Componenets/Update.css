@@ -65,7 +65,9 @@
     margin-top: 0.25rem;
 }
 
-.submit-button {
+.submit {
+    height: 42px;
+    width: 85px;
     background-color: #0078d4;
     color: #ffffff;
     padding: -1.25rem 1.5rem;
@@ -75,11 +77,11 @@
     font-size: 1rem;
 }
 
-.submit-button:hover {
+.submit:hover {
     background-color: #1161a1;
 }
 
-.cancel-button {
+.cancel {
     background-color: #d12828; /* Gray color for the cancel button */
     color: #ffffff;
     border: none;
@@ -88,9 +90,10 @@
     cursor: pointer;
     font-size: 1rem;
     margin-left: 10px; /* Space between submit and cancel button */
+    margin-right: 13px;
 }
 
-.cancel-button:hover {
+.cancel:hover {
     background-color: #8a0505; /* Darker shade of gray on hover */
 }
 

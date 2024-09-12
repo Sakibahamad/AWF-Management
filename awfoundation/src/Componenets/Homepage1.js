@@ -3,10 +3,10 @@ import './Homepage1.css';
 import profile from '../Componenets/profile2.jpg';
 import advika from '../Componenets/Advika.png'; 
 import { useNavigate } from 'react-router-dom';
-import VerticalNav from './VerticalNav'; 
+import VerticalNav from './VerticalNav.js'; 
 import ImageSlider from './ImageSlider.js'; 
 import FeatureSection from './FeatureSection.js';
-import Info from '../Componenets/Info.js';
+import Info from './Info.js';
 import Bottom from './Bottom.js';
 import Gallary from './Gallary.js';
 import Footer from './Footer.js';
@@ -76,9 +76,9 @@ function Homepage1() {
             <div className="navbar-left">
               <img src={advika} alt="Advika" className="advika-image" /> 
               <a href="#home" onClick={() => window.scrollTo(0, 0)}>Home</a>
-              <a href="" onClick={() => navigate('/feature')}>About Us</a>
-              <a href="" onClick={() => navigate('/Bottom')}>Contact Us</a>
-              <a href="" onClick={() => navigate('/Gallary')}>Gallery</a>
+              <a onClick={() => navigate('/feature')}>About Us</a>
+              <a  onClick={() => navigate('/Bottom')}>Contact Us</a>
+              <a onClick={() => navigate('/Gallary')}>Gallery</a>
             </div>
           )}
           {!isAuthenticated && (

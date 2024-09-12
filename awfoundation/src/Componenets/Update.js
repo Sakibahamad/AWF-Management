@@ -306,8 +306,8 @@ const Update = () => {
                         )}
                     </div>
                     <div className="form-buttons">
-                        <button type="submit" className="submit-button">Update</button>
-                        <button type="button" className="cancel-button" onClick={cancelForm}>Cancel</button>
+                        <button type="button" className="cancel" onClick={cancelForm}>Cancel</button>
+                        <button type="submit" className="submit">Update</button>
                     </div>
                 </form>
             </div>

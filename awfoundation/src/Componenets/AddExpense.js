@@ -131,43 +131,43 @@ const AddExpense = ({ handlePageChange }) => {
     };
 
     return (
-        <div className="create-expense-form-container">
-            <div className="create-expense-form-wrapper">
-                <h2 className="create-expense-form-heading">Add Expense Data</h2>
+        <div className="add-expense-container">
+            <div className="add-expense-form-wrapper">
+                <h2 className="add-expense-heading">Add Expense Data</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="create-expense-form-group">
-                        <Label className="create-expense-form-label">Date</Label>
+                    <div className="add-expense-form-group">
+                        <Label className="add-expense-label">Date</Label>
                         <input
                             type="date"
-                            className={`create-expense-form-input ${dateError ? 'input-error' : ''}`}
+                            className={`add-expense-input ${dateError ? 'input-error' : ''}`}
                             value={date}
                             onChange={handleChange(setDate, setDateError)}
                         />
                         {dateError && (
-                            <div className="create-expense-form-error-message">
+                            <div className="error-message">
                                 {dateError}
                             </div>
                         )}
                     </div>
-                    <div className="create-expense-form-group">
-                        <Label className="create-expense-form-label">Reason</Label>
+                    <div className="add-expense-form-group">
+                        <Label className="add-expense-label">Reason</Label>
                         <input
                             placeholder="Enter reason"
                             type="text"
-                            className={`create-expense-form-input ${reasonError ? 'input-error' : ''}`}
+                            className={`add-expense-input ${reasonError ? 'input-error' : ''}`}
                             value={reason}
                             onChange={handleChange(setReason, setReasonError)}
                         />
                         {reasonError && (
-                            <div className="create-expense-form-error-message">
+                            <div className="error-message">
                                 {reasonError}
                             </div>
                         )}
                     </div>
-                    <div className="create-expense-form-group">
-                        <Label className="create-expense-form-label">Category</Label>
+                    <div className="add-expense-form-group">
+                        <Label className="add-expense-label">Category</Label>
                         <select
-                            className={`create-expense-form-select ${categoryError ? 'input-error' : ''}`}
+                            className={`add-expense-select ${categoryError ? 'input-error' : ''}`}
                             value={category}
                             onChange={(e) => {
                                 setCategory(e.target.value);
@@ -186,30 +186,30 @@ const AddExpense = ({ handlePageChange }) => {
                             ))}
                         </select>
                         {categoryError && (
-                            <div className="create-expense-form-error-message">
+                            <div className="error-message">
                                 {categoryError}
                             </div>
                         )}
                     </div>
-                    <div className="create-expense-form-group">
-                        <Label className="create-expense-form-label">Amount</Label>
+                    <div className="add-expense-form-group">
+                        <Label className="add-expense-label">Amount</Label>
                         <input
                             placeholder="Enter amount"
                             type="number"
-                            className={`create-expense-form-input ${amountError ? 'input-error' : ''}`}
+                            className={`add-expense-input ${amountError ? 'input-error' : ''}`}
                             value={amount}
                             onChange={handleChange(setAmount, setAmountError)}
                         />
                         {amountError && (
-                            <div className="create-expense-form-error-message">
+                            <div className="error-message">
                                 {amountError}
                             </div>
                         )}
                     </div>
-                    <div className="create-expense-form-group">
-                        <Label className="create-expense-form-label">Payment Mode</Label>
+                    <div className="add-expense-form-group">
+                        <Label className="add-expense-label">Payment Mode</Label>
                         <select
-                            className={`create-expense-form-select ${paymentModeError ? 'input-error' : ''}`}
+                            className={`add-expense-select ${paymentModeError ? 'input-error' : ''}`}
                             value={paymentMode}
                             onChange={(e) => {
                                 setPaymentMode(e.target.value);
@@ -228,30 +228,30 @@ const AddExpense = ({ handlePageChange }) => {
                             ))}
                         </select>
                         {paymentModeError && (
-                            <div className="create-expense-form-error-message">
+                            <div className="error-message">
                                 {paymentModeError}
                             </div>
                         )}
                     </div>
-                    <div className="create-expense-form-group">
-                        <Label className="create-expense-form-label">Description</Label>
+                    <div className="add-expense-form-group">
+                        <Label className="add-expense-label">Description</Label>
                         <textarea
                             placeholder="Enter description"
-                            className={`create-expense-form-textarea ${descriptionError ? 'input-error' : ''}`}
+                            className={`add-expense-textarea ${descriptionError ? 'input-error' : ''}`}
                             value={description}
                             onChange={handleChange(setDescription, setDescriptionError)}
                         />
                         {descriptionError && (
-                            <div className="create-expense-form-error-message">
+                            <div className="error-message">
                                 {descriptionError}
                             </div>
                         )}
                     </div>
-                    <div className="create-expense-form-buttons">
-                        <button type="button" className="create-expense-form-cancel-button" onClick={handleCancel}>
+                    <div className="add-expense-buttons">
+                        <button type="button" className="cancel-button" onClick={handleCancel}>
                             Cancel
                         </button>
-                        <button type="submit" className="create-expense-form-submit-button">
+                        <button type="submit" className="submit-button">
                             Submit
                         </button>
                     </div>
@@ -262,11 +262,12 @@ const AddExpense = ({ handlePageChange }) => {
                 isOpen={isModalOpen}
                 onDismiss={closeModal}
                 isBlocking={false}
+                containerClassName="modal-container"
             >
-                <div className="create-expense-form-modal-content">
-                    <h3 className="create-expense-form-modal-title">Success</h3>
-                    <p className="create-expense-form-modal-message">Expense data submitted successfully!</p>
-                    <button className="create-expense-form-modal-button" onClick={closeModal}>OK</button>
+                <div className="modal-content">
+                    <h3 className="modal-title">Success</h3>
+                    <p className="modal-message">Expense data submitted successfully!</p>
+                    <button className="modal-button" onClick={closeModal}>OK</button>
                 </div>
             </Modal>
         </div>
@@ -274,3 +275,4 @@ const AddExpense = ({ handlePageChange }) => {
 };
 
 export default AddExpense;
+    

@@ -3,9 +3,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
 import Create from './Create';
-import './Read.css'; // Ensure you have styles for the icons
+import './Read.css'; 
 import homen from './Home.jpg';
-import homepage2 from './Homepage2';
+import deleteIcon from './delete.png'; // Rename the import if needed
+import updateIcon from './update.png'; // Rename the import if needed
 
 const Read = () => {
     const [students, setStudents] = useState([]);
@@ -173,18 +174,22 @@ const Read = () => {
                                 <td>{student.hobbies.join(', ')}</td>
                                 <td>{student.gender}</td>
                                 <td>
-                                    <button
-                                        className="update-button"
+                                    <img
+                                        title='Update'
+                                        src={updateIcon}
+                                        alt="Update"
+                                        className="icon update-icon"
                                         onClick={() => handleUpdate(student.id)}
-                                    >
-                                        Update
-                                    </button>
-                                    <button
-                                        className="delete-button"
+                                        style={{ cursor: 'pointer', width: '24px', marginRight: '8px' }}
+                                    />
+                                    <img
+                                        title='Delete'
+                                        src={deleteIcon}
+                                        alt="Delete"
+                                        className="icon delete-icon"
                                         onClick={() => handleDeleteClick(student)}
-                                    >
-                                        Delete
-                                    </button>
+                                        style={{ cursor: 'pointer', width: '24px' }}
+                                    />
                                 </td>
                             </tr>
                         ))

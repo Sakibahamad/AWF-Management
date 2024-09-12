@@ -41,6 +41,7 @@
   text-decoration: none;
   margin: 0 20px; /* Adjusted spacing for better alignment */
   font-size: 18px;
+  cursor: pointer;
 }
 
 .navbar-left a:hover {

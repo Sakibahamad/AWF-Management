@@ -280,8 +280,8 @@ const ExpenseUpdate = ({ handlePageChange = () => {} }) => {
                     </div>
 
                     <div className="update-expense-form-buttons">
-                        <button type="submit" className="update-expense-form-submit-button">Update</button>
                         <button type="button" className="update-expense-form-cancel-button" onClick={handleCancel}>Cancel</button>
+                        <button type="submit" className="update-expense-form-submit-button">Update</button>
                     </div>
                 </form>
 

@@ -14,6 +14,9 @@ import Update from './Componenets/Update'; // Import Update
 import ExpenseTable from './Componenets/ExpenseTable';
 import AddExpense from './Componenets/AddExpense';
 import ExpenseUpdate from './Componenets/ExpenseUpdate';
+import InventoryTable from './Componenets/InventoryTable';
+import AddInventory from './Componenets/AddInventory';
+import InventoryUpdate from './Componenets/InventoryUpdate';
 
 function App() {
   return (
@@ -29,12 +32,19 @@ function App() {
             <Route path="/feature" element={<FeatureSection />} />
             <Route path="/bottom" element={<Bottom />} />
             <Route path="/gallary" element={<Gallary />} />
+
             <Route path="/read" element={<Read />} />
             <Route path="/create" element={<Create />} />
-            <Route path="/expenses" element={<ExpenseTable />} />
-            <Route path="/ExpenseUpdate/:id" element={<ExpenseUpdate />} />
-            <Route path="/AddExpense" element={<AddExpense />} />
             <Route path="/update/:id" element={<Update />} /> 
+
+            <Route path="/expenses" element={<ExpenseTable />} />
+            <Route path="/AddExpense" element={<AddExpense />} />
+            <Route path="/ExpenseUpdate/:id" element={<ExpenseUpdate />} />
+
+            <Route path="/inventory" element={<InventoryTable />} />
+            <Route path="/inventory/create" element={<AddInventory />} />
+            <Route path="/inventory/update/:id" element={<InventoryUpdate />} />
+
             <Route path="/homepage1" element={<Homepage1 />} />
             <Route path="/homepage2" element={<Homepage2 />} />
             <Route path="/sign-out" element={<Homepage1 />} />

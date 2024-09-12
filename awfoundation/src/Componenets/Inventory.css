@@ -1,0 +1,112 @@
+/* AddInventory.css */
+
+.create-inventory-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.create-inventory-form-wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.create-inventory-form-heading {
+    text-align: center;
+    color: #0078d4; /* Fluent UI Blue */
+    margin-bottom: 20px;
+}
+
+.create-inventory-form-group {
+    margin-bottom: 15px;
+}
+
+.create-inventory-form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.create-inventory-form-input,
+.create-inventory-form-select,
+.create-inventory-form-textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.create-inventory-form-input:focus,
+.create-inventory-form-select:focus,
+.create-inventory-form-textarea:focus {
+    border-color: #0078d4; /* Fluent UI Blue */
+    outline: none;
+}
+
+.create-inventory-form-error-message {
+    color: #d83b01; /* Fluent UI Red */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.create-inventory-form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-inventory-form-cancel-button,
+.create-inventory-form-submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.create-inventory-form-cancel-button {
+    background-color: #da1b1b;
+    color: #f7f4f4;
+}
+
+.create-inventory-form-submit-button {
+    background-color: #0078d4; /* Fluent UI Blue */
+    color: #fff;
+}
+
+.create-inventory-form-cancel-button:hover,
+.create-inventory-form-submit-button:hover {
+    opacity: 0.9;
+}
+
+/* Modal styles */
+.modal-container {
+    /* width: 300px; */
+    padding: 20px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-close-button {
+    margin-top: 10px;
+    background-color: #0078d4; /* Fluent UI Blue */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-close-button:hover {
+    opacity: 0.9;
+}

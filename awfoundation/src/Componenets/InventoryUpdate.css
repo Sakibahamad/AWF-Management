@@ -1,0 +1,112 @@
+/* InventoryUpdate.css */
+
+.update-inventory-form-container {
+    height: 811px;
+    padding: 20px;
+    max-width: 654px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.update-inventory-form-wrapper {
+    padding: 20px;
+}
+
+.update-inventory-form-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0078d4; /* Fluent UI blue color */
+}
+
+.update-inventory-form-group {
+    margin-bottom: 20px;
+}
+
+.update-inventory-form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.update-inventory-form-input,
+.update-inventory-form-select,
+.update-inventory-form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.update-inventory-form-input.error,
+.update-inventory-form-select.error,
+.update-inventory-form-textarea.error {
+    border-color: #f00;
+}
+
+.update-inventory-form-error-message {
+    color: #f00;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.update-inventory-form-buttons {
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.update-inventory-form-cancel,
+.update-inventory-form-submit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.update-inventory-form-cancel {
+    margin-right: 10px;
+    background-color: #ca3737;
+    color: #f8f3f3;
+}
+
+.update-inventory-form-submit {
+    background-color: #0078d4; /* Fluent UI blue color */
+    color: #fff;
+}
+
+.update-inventory-form-submit:hover {
+    background-color: #005a9e; /* Darker blue for hover */
+}
+
+/* Modal Styles */
+.modal-content {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #0078d4;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0078d4;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: #005a9e;
+}

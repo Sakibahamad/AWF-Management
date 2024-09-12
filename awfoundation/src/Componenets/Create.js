@@ -14,7 +14,7 @@ const Create = ({ handlePageChange }) => {
     const [email, setEmail] = useState('');
     const [studentClass, setStudentClass] = useState('');
     const [hobbies, setHobbies] = useState([]);
-    const [gender, setGender] = useState('');
+    const [gender, setGender] = useState('male');  // Default to 'male'
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [studentClassError, setStudentClassError] = useState('');
@@ -173,6 +173,7 @@ const Create = ({ handlePageChange }) => {
             <div className="create-student-form-wrapper">
                 <h2 className="create-student-form-heading">Add Student Data</h2>
                 <form onSubmit={handleSubmit}>
+                    {/* Name */}
                     <div className="create-student-form-group">
                         <Label className="create-student-form-label">Name</Label>
                         <input
@@ -188,6 +189,8 @@ const Create = ({ handlePageChange }) => {
                             </div>
                         )}
                     </div>
+
+                    {/* Email */}
                     <div className="create-student-form-group">
                         <Label className="create-student-form-label">Email</Label>
                         <input
@@ -203,6 +206,8 @@ const Create = ({ handlePageChange }) => {
                             </div>
                         )}
                     </div>
+
+                    {/* Student class */}
                     <div className="create-student-form-group">
                         <Label className="create-student-form-label">Student class</Label>
                         <select
@@ -225,6 +230,8 @@ const Create = ({ handlePageChange }) => {
                             </div>
                         )}
                     </div>
+
+                    {/* Hobbies */}
                     <div className="create-student-form-group">
                         <Label className="create-student-form-label">Hobbies</Label>
                         <Select
@@ -242,6 +249,8 @@ const Create = ({ handlePageChange }) => {
                             </div>
                         )}
                     </div>
+
+                    {/* Gender */}
                     <div className="create-student-form-group">
                         <Label className="create-student-form-label">Gender</Label>
                         <div className="create-student-form-radio-group">
@@ -251,20 +260,20 @@ const Create = ({ handlePageChange }) => {
                                 id="male"
                                 name="gender"
                                 value="male"
-                                onChange={handleGenderChange}
                                 checked={gender === 'male'}
+                                onChange={handleGenderChange}
                             />
-                            <Label className="create-student-form-radio-label" htmlFor="male">Male</Label>
+                            <label htmlFor="male" className="create-student-form-radio-label">Male</label>
                             <input
                                 className="create-student-form-radio-input"
                                 type="radio"
                                 id="female"
                                 name="gender"
                                 value="female"
-                                onChange={handleGenderChange}
                                 checked={gender === 'female'}
+                                onChange={handleGenderChange}
                             />
-                            <Label className="create-student-form-radio-label" htmlFor="female">Female</Label>
+                            <label htmlFor="female" className="create-student-form-radio-label">Female</label>
                         </div>
                         {genderError && (
                             <div className="create-student-form-error-message">
@@ -272,41 +281,32 @@ const Create = ({ handlePageChange }) => {
                             </div>
                         )}
                     </div>
-                    <div className="create-student-form-buttons">
-                       
-                        <button
-                            type="button"
-                            className="create-student-form-cancel-button"
-                            onClick={cancelForm}
-                        >
-                            Cancel
-                        </button>
-                        <button
-                            type="submit"
-                            className="create-student-form-submit-button"
-                        >
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <Modal
-                isOpen={isModalOpen}
-                onDismiss={closeModal}
-                isBlocking={false}
-                className="create-student-form-modal"
-            >
-                <div className="create-student-form-modal-content">
-                    <h3 className="create-student-form-modal-title">Submission Successful</h3>
-                    <p className="create-student-form-modal-message">The student data has been added successfully!</p>
-                    <button
-                        className="create-student-form-modal-close-button"
-                        onClick={closeModal}
-                    >
-                        Close
+
+
+                    {/* Cancel Button */}
+                    <button type="button" className="create-student-form-button-cancel-button" onClick={cancelForm}>
+                        Cancel
                     </button>
-                </div>
-            </Modal>
+
+                    {/* Submit Button */}
+                    <button type="submit" className="create-student-form-button">Submit</button>
+
+                </form>
+
+                {/* Modal */}
+                {isModalOpen && (
+                    <Modal
+                        isOpen={isModalOpen}
+                        onDismiss={closeModal}
+                    >
+                        <div className="modal-content">
+                            <h2>Form Submitted</h2>
+                            <p>Student data has been successfully submitted.</p>
+                            <button onClick={closeModal}>Close</button>
+                        </div>
+                    </Modal>
+                )}
+            </div>
         </div>
     );
 };

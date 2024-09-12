@@ -74,21 +74,24 @@
     gap: 10px;
 }
 
-.create-student-form-submit-button,
-.create-student-form-cancel-button {
-    padding: 10px 20px;
+.create-student-form-button,
+.create-student-form-button-cancel-button {
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
+    margin-right: 10px;
+    margin-top: 8px;
 }
 
-.create-student-form-submit-button {
+.create-student-form-button{
     background-color: #0078d4;
+    margin-left: 209PX;
 }
 
-.create-student-form-cancel-button {
-    background-color: #d9534f;
+.create-student-form-button-cancel-button {
+    background-color: #d43b36;
 }
 
 .create-student-form-modal {

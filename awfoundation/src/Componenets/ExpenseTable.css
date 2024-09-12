@@ -5,16 +5,16 @@
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    position: relative; 
+    position: relative;
 }
 
 /* Home image styling */
 .home-icon {
-    top: 10px; /* Adjust based on your layout */
-    left: 5px; /* Adjust based on your layout */
-    width: 80px; /* Set the desired width */
-    height: 40px; /* Set the desired height */
-    cursor: pointer; /* Show that it's clickable */
+    top: 10px;
+    left: 5px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
 }
 
 /* Heading style */
@@ -49,6 +49,7 @@
 }
 
 .search-input {
+    margin-left: -945px;
     width: 100%;
     max-width: 300px;
     padding: 10px;
@@ -69,7 +70,7 @@
 }
 
 .record-table th, .record-table td {
-    padding: 12px 15px;
+    padding: 8px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -84,33 +85,25 @@
     background-color: #f1f1f1;
 }
 
-/* Action buttons */
-.update-button, .delete-button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
+/* Action images styling */
+.action-icon {
+    width: 30px; /* Adjust the size of the action icons */
+    height: 30px;
     cursor: pointer;
-    font-size: 14px;
+    transition: transform 0.3s ease;
     margin-right: 10px;
-    transition: background-color 0.3s ease;
 }
 
-.update-button {
-    background-color: #0078d4;
-    color: white;
+.action-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
-.update-button:hover {
-    background-color: #005ea6;
-}
-
-.delete-button {
-    background-color: red;
-    color: white;
-}
-
-.delete-button:hover {
-    background-color: darkred;
+/* Remove old button styles */
+.update-button, .delete-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* Modal styles */
@@ -178,3 +171,4 @@
 .cancel-button:hover {
     background-color: #940101;
 }
+
