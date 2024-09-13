@@ -61,11 +61,11 @@ const AddExpense = ({ handlePageChange }) => {
 
     const closeModal = () => {
         setIsModalOpen(false);
-        handlePageChange('Read'); // Navigate to the Read page after submission
+        handlePageChange('expenses'); // Navigate to the Read page after submission
     };
 
     const handleCancel = () => {
-        handlePageChange('Read'); // Navigate to the Read page
+        handlePageChange('expenses'); // Navigate to the Read page
     };
 
     const categoryOptions = [

@@ -1,4 +1,4 @@
-/* Update.css */
+
 
 .update-form-container {
     display: flex;
@@ -82,19 +82,19 @@
 }
 
 .cancel {
-    background-color: #d12828; /* Gray color for the cancel button */
+    background-color: #d12828; 
     color: #ffffff;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    margin-left: 10px; /* Space between submit and cancel button */
+    margin-left: 10px; 
     margin-right: 13px;
 }
 
 .cancel:hover {
-    background-color: #8a0505; /* Darker shade of gray on hover */
+    background-color: #8a0505; 
 }
 
 .form-radio-group {

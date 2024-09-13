@@ -29,6 +29,9 @@ function VerticalNav({ isSidebarVisible, handleMenuItemClick, sidebarRef }) {
         <div className="sidebar-item" onClick={() => handleNavigation('/expenses')}>
           Expense
         </div>
+        <div className="sidebar-item" onClick={() => handleNavigation('/employee')}>
+        Employee
+        </div>
       </nav>
     </>
   );

@@ -17,6 +17,9 @@ import ExpenseUpdate from './Componenets/ExpenseUpdate';
 import InventoryTable from './Componenets/InventoryTable';
 import AddInventory from './Componenets/AddInventory';
 import InventoryUpdate from './Componenets/InventoryUpdate';
+import EmployeeTable from './Componenets/EmployeeTable';
+import AddEmployee from './Componenets/AddEmployee';
+import EmployeeUpdate from './Componenets/EmployeeUpdate';
 
 function App() {
   return (
@@ -44,6 +47,10 @@ function App() {
             <Route path="/inventory" element={<InventoryTable />} />
             <Route path="/inventory/create" element={<AddInventory />} />
             <Route path="/inventory/update/:id" element={<InventoryUpdate />} />
+
+            <Route path="/employee" element={<EmployeeTable />} />
+            <Route path="/employee/create" element={<AddEmployee />} />
+            <Route path="/employee/update/:id" element={<EmployeeUpdate />} />
 
             <Route path="/homepage1" element={<Homepage1 />} />
             <Route path="/homepage2" element={<Homepage2 />} />

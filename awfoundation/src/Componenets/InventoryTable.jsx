@@ -31,13 +31,17 @@ const InventoryTable = () => {
         fetchRecords();
     }, []);
 
-    // Filter records by category
+    // Filter records by category and itemName
     useEffect(() => {
         if (searchQuery) {
             const lowercasedQuery = searchQuery.toLowerCase();
-            const filtered = records.filter(record =>
-                record.category.toLowerCase().includes(lowercasedQuery)
-            );
+
+            const filtered = records.filter(record => {
+                const matchesCategory = record.category.toLowerCase().includes(lowercasedQuery);
+                const matchesItemName = record.itemName.toLowerCase().includes(lowercasedQuery);
+                return matchesCategory || matchesItemName;
+            });
+
             setFilteredRecords(filtered);
         } else {
             setFilteredRecords(records);
@@ -129,7 +133,7 @@ const InventoryTable = () => {
             <div className="search-bar">
                 <input
                     type="text"
-                    placeholder="Search by category"
+                    placeholder="Search by category or item name"
                     className="search-input"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -142,7 +146,7 @@ const InventoryTable = () => {
                             Date {getSortIcon('date')}
                         </th>
                         <th onClick={() => handleSort('itemName')}>
-                            itemName {getSortIcon('itemName')}
+                            Item Name {getSortIcon('itemName')}
                         </th>
                         <th onClick={() => handleSort('category')}>
                             Category {getSortIcon('category')}
