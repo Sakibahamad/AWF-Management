@@ -21,7 +21,7 @@ function ImageSlider() {
                 images={images}
                 showNavs={true}
                 autoPlay={true}  
-                autoPlayDelay={4.0}  
+                autoPlayDelay={2.0}  
                 onClick={(idx, event) => console.log(`Image ${idx + 1} clicked`)}
             />
         </div>
