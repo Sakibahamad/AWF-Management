@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
-import Create from './Create';
 import './Read.css'; 
 import homen from './Home.jpg';
 import deleteIcon from './delete.png'; // Rename the import if needed
@@ -76,7 +75,7 @@ const Read = () => {
 
     // Navigate to Update page
     const handleUpdate = (id) => {
-        navigate(`/update/${id}`);
+        navigate(`/student/update/${id}`);
     };
 
     // Navigate to Homepage2
@@ -113,7 +112,7 @@ const Read = () => {
 
     // Open create modal
     const handleAddStudent = () => {
-        setIsCreateModalOpen(true);
+        navigate('/students/Add');
     };
 
     // Close create modal and refresh the student list
@@ -214,20 +213,11 @@ const Read = () => {
                 <div className="modal-body">
                     <p>Are you sure you want to delete this record?</p>
                     <div className="modal-actions">
-                        <button className="confirm-button" onClick={handleDelete}>Yes</button>
                         <button className="cancel-button" onClick={closeDeleteModal}>No</button>
+                        <button className="confirm-button" onClick={handleDelete}>Yes</button>
+
                     </div>
                 </div>
-            </Modal>
-
-            {/* Create Modal */}
-            <Modal
-                isOpen={isCreateModalOpen}
-                onDismiss={closeCreateModal}
-                isBlocking={false}
-                containerClassName="modal-container"
-            >
-                <Create handlePageChange={() => closeCreateModal()} />
             </Modal>
         </div>
     );

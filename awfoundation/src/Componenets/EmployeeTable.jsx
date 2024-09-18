@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
 import { Label } from '@fluentui/react/lib/Label';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import AddEmployee from './AddEmployee'; // Ensure this path is correct
 import homen from './Home.jpg'; // Home image
 import updateIcon from './update.png'; 
 import deleteIcon from './delete.png'; 
@@ -78,6 +77,11 @@ const EmployeeTable = () => {
         return '↕️'; // Neutral arrow
     };
 
+    // Format Aadhar number
+    const formatAadharNumber = (aadharNo) => {
+        return aadharNo.replace(/(\d{4})(?=\d)/g, '$1 ');
+    };
+
     // Navigate to Update page
     const handleUpdate = (id) => {
         navigate(`/employee/update/${id}`);
@@ -117,7 +121,7 @@ const EmployeeTable = () => {
 
     // Open create modal
     const handleAddEmployee = () => {
-        setIsCreateModalOpen(true);
+        navigate('/employee/create1');
     };
 
     // Close create modal and refresh the employee list
@@ -182,7 +186,7 @@ const EmployeeTable = () => {
                                 <td>{employee.role}</td>
                                 <td>{employee.salary}</td>
                                 <td>{employee.location}</td>
-                                <td>{employee.aadharNo}</td>
+                                <td>{formatAadharNumber(employee.aadharNo)}</td>
                                 <td>{employee.mobileNo}</td>
                                 <td>{employee.joiningDate}</td>
                                 <td>
@@ -221,25 +225,15 @@ const EmployeeTable = () => {
                 containerClassName="modal-container"
             >
                 <div className="modal-header">
-                    <h2 className="modal-heading">Confirm Deletion</h2>
+                    <h2 className="modal-heading">Confirmation !</h2>
                 </div>
                 <div className="modal-body">
                     <p>Are you sure you want to delete this employee?</p>
                     <div className="modal-actions">
-                        <button className="confirm-button" onClick={handleDelete}>Yes</button>
                         <button className="cancel-button" onClick={closeDeleteModal}>No</button>
+                        <button className="confirm-button" onClick={handleDelete}>Yes</button>
                     </div>
                 </div>
-            </Modal>
-
-            {/* Create Modal */}
-            <Modal
-                isOpen={isCreateModalOpen}
-                onDismiss={closeCreateModal}
-                isBlocking={false}
-                containerClassName="modal-container"
-            >
-                <AddEmployee handlePageChange={closeCreateModal} />
             </Modal>
         </div>
     );

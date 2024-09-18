@@ -1,4 +1,4 @@
-/* AddInventory.css */
+
 
 .create-inventory-form-container {
     display: flex;
@@ -20,7 +20,6 @@
 
 .create-inventory-form-heading {
     text-align: center;
-    color: #0078d4; /* Fluent UI Blue */
     margin-bottom: 20px;
 }
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
-import AddExpense from './AddExpense'; // Ensure this path is correct
 import './ExpenseTable.css'; // Ensure you have styles for the icons and other elements
 import homen from './Home.jpg'; // Home image
 import updateIcon from './update.png'; // Ensure this path is correct
@@ -113,7 +112,8 @@ const ExpenseTable = () => {
 
     // Open create modal
     const handleAddRecord = () => {
-        setIsCreateModalOpen(true);
+        navigate('/AddExpense');
+        // setIsCreateModalOpen(true);
     };
 
     // Close create modal and refresh the records list
@@ -213,26 +213,17 @@ const ExpenseTable = () => {
                 containerClassName="modal-container"
             >
                 <div className="modal-header">
-                    <h2 className="modal-heading">Confirm Deletion</h2>
+                    <h2 className="modal-heading">Confirmation !</h2>
                 </div>
                 <div className="modal-body">
                     <p>Are you sure you want to delete this record?</p>
                     <div className="modal-actions">
+                    <button className="cancel-button" onClick={closeDeleteModal}>No</button>
                         <button className="confirm-button" onClick={handleDelete}>Yes</button>
-                        <button className="cancel-button" onClick={closeDeleteModal}>No</button>
                     </div>
                 </div>
             </Modal>
 
-            {/* Create Modal */}
-            <Modal
-                isOpen={isCreateModalOpen}
-                onDismiss={closeCreateModal}
-                isBlocking={false}
-                containerClassName="modal-container"
-            >
-                <AddExpense handlePageChange={closeCreateModal} />
-            </Modal>
         </div>
     );
 };

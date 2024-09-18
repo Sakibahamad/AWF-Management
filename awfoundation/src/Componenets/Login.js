@@ -129,8 +129,9 @@ function Login() {
                 </div>
 
                 <div className="button-container">
-                    <PrimaryButton type="submit" className="submit-button">Login</PrimaryButton>
                     <DefaultButton onClick={handleCancel} className="cancel-button">Cancel</DefaultButton>
+                    <PrimaryButton type="submit" className="submit-button">Login</PrimaryButton>
+
                 </div>
             </form>
             <div className="forgot-password-container">

@@ -1,0 +1,145 @@
+/* ExpenseAdd.css */
+
+.add-expense-container {
+    margin-left: 330px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #f5f5f5; */
+    padding: 20px;
+}
+
+.add-expense-form-wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.add-expense-heading {
+    margin-left: 223px;
+    font-size: 24px;
+}
+
+.add-expense-form-group {
+    margin-bottom: 15px;
+}
+
+.add-expense-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.add-expense-form-input,
+.add-expense-form-select,
+.add-expense-form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-expense-form-input:focus,
+.add-expense-form-select:focus,
+.add-expense-form-textarea:focus {
+    border-color: #0078d4; /* Fluent UI blue color */
+    outline: none;
+}
+
+.input-error {
+    border-color: #e81123; /* Error color */
+}
+
+.error-message {
+    color: #e81123; /* Error color */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.add-expense-form-textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-button,
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.cancel-button {
+    /* background-color: #d9534f; Bootstrap danger color */
+}
+
+.submit-button {
+    background-color: #0078d4; /* Fluent UI blue color */
+}
+
+.cancel-button:hover,
+.submit-button:hover {
+    opacity: 0.9;
+}
+
+.modal-container {
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.close-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 10px 0;
+}
+
+.modal-footer {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0078d4; /* Fluent UI blue color */
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.modal-button:hover {
+    opacity: 0.9;
+}

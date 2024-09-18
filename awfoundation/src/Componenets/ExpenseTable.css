@@ -159,15 +159,15 @@
 }
 
 .confirm-button:hover {
-    background-color: darkred;
+    background-color: rgb(194, 43, 43);
 }
 
 .cancel-button {
-    background-color: #fa0606;
+    background-color: #b61717;
     color: rgb(241, 238, 238);
 }
 
 .cancel-button:hover {
-    background-color: #940101;
+    background-color: #b90f0f;
 }
 

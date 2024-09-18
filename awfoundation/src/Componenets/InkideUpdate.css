@@ -1,0 +1,106 @@
+/* InkideUpdate.css */
+
+.update-inkind-form-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.update-inkind-form-wrapper {
+    margin-left: 31px;
+    width: 643px;
+    border-radius: 8px;
+    padding: 31px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-inkind-form-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-left: 185px;
+}
+
+.update-inkind-form-group {
+    margin-bottom: 15px;
+}
+
+.update-inkind-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.update-inkind-form-input,
+.update-inkind-form-select,
+.update-inkind-form-textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.update-inkind-form-input.input-error,
+.update-inkind-form-select.input-error,
+.update-inkind-form-textarea.input-error {
+    border-color: #e11111; /* Error color */
+}
+
+.update-inkind-form-error-message {
+    color: #e11111; /* Error color */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.update-inkind-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.update-inkind-form-cancel-button,
+.update-inkind-form-submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.update-inkind-form-cancel-button {
+    background-color: #e11111; /* Cancel button color */
+    color: white;
+}
+
+.update-inkind-form-submit-button {
+    background-color: #0078d4; /* Submit button color */
+    color: white;
+}
+
+.update-inkind-form-cancel-button:hover,
+.update-inkind-form-submit-button:hover {
+    opacity: 0.9;
+}
+
+.modal-container {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-close-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0078d4; /* Close button color */
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-close-button:hover {
+    opacity: 0.9;
+}

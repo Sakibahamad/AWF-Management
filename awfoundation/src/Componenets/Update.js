@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
+import { IconButton } from '@fluentui/react/lib/Button'; // Import IconButton
 import Select from 'react-select';
 import { Label } from '@fluentui/react/lib/Label';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
@@ -117,7 +118,7 @@ const Update = () => {
                 gender: capitalizeFirstLetter(gender),
             });
 
-            console.log(' data updated successfully:', response.data);
+            console.log('Data updated successfully:', response.data);
             setIsModalOpen(true);
         } catch (error) {
             console.error('Error updating form data:', error);
@@ -126,7 +127,7 @@ const Update = () => {
 
     const closeModal = () => {
         setIsModalOpen(false);
-        navigate('/read'); // Navigate to the Read page after closing the modal
+        navigate('/student'); // Navigate to the Read page after closing the modal
     };
 
     const handleOkClick = () => {
@@ -148,7 +149,7 @@ const Update = () => {
     ];
 
     const cancelForm = () => {
-        navigate('/read'); // Navigate to the Read page without making changes
+        navigate('/student'); // Navigate to the Read page without making changes
     };
 
     const validateForm = () => {
@@ -199,7 +200,22 @@ const Update = () => {
     return (
         <div className="update-form-container">
             <div className="form-wrapper">
-                <h2 className="form-heading">Update Student Data</h2>
+                <div className="form-header1">
+                    <h2 className="form-heading1">Update Student Data</h2>
+
+
+                    {/* <div className="form-actions">
+                        <IconButton
+                            iconProps={{ iconName: 'Cancel' }}
+                            title="Cancel"
+                            onClick={cancelForm}
+                            ariaLabel="Cancel"
+                            className="cancel-icon"
+                        />
+                    </div> */}
+
+
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <Label className="form-label">Name</Label>
@@ -245,7 +261,7 @@ const Update = () => {
                             <option value="Second Year">Second Year</option>
                             <option value="Third Year">Third Year</option>
                             <option value="Last Year">Last Year</option>
-                            <option value="other">Other</option>
+                            <option value="Other">Other</option>
                         </select>
                         {studentClassError && (
                             <div className="error-message">
@@ -261,6 +277,7 @@ const Update = () => {
                             value={hobbies}
                             onChange={handleHobbyChange}
                             className={`form-select ${hobbiesError ? 'input-error' : ''}`}
+                            placeholder="Select hobbies"
                         />
                         {hobbiesError && (
                             <div className="error-message">
@@ -270,7 +287,7 @@ const Update = () => {
                     </div>
                     <div className="form-group">
                         <Label className="form-label">Gender</Label>
-                        <div className="gender-options">
+                        <div className="form-radio-group">
                             <label>
                                 <input
                                     type="radio"
@@ -289,15 +306,6 @@ const Update = () => {
                                 />
                                 Female
                             </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    value="other"
-                                    checked={gender === 'other'}
-                                    onChange={handleGenderChange}
-                                />
-                                Other
-                            </label>
                         </div>
                         {genderError && (
                             <div className="error-message">
@@ -305,24 +313,36 @@ const Update = () => {
                             </div>
                         )}
                     </div>
-                    <div className="form-buttons">
-                        <button type="button" className="cancel" onClick={cancelForm}>Cancel</button>
-                        <button type="submit" className="submit">Update</button>
+                    <div className="form-actions">
+                        <button type="button" className="cancel-button2" onClick={cancelForm}>Cancel</button> 
+                        <button type="submit" className="submit-button2">Update</button>
+
                     </div>
                 </form>
             </div>
-            <Modal
-                isOpen={isModalOpen}
-                onDismiss={closeModal}
-                isBlocking={false}
-                containerClassName="update-modal-container"
-            >
-                <div className="modal-content">
-                    <h3>Success!</h3>
-                    <p>Student data has been updated successfully.</p>
-                    <button className="ok-button" onClick={handleOkClick}>OK</button>
-                </div>
-            </Modal>
+
+            {isModalOpen && (
+                <Modal
+                    isOpen={isModalOpen}
+                    onDismiss={closeModal}
+                    isBlocking={false}
+                    containerClassName="modal-container"
+                >
+                    <div className="modal-header">
+                        <h2>Success</h2>
+                        <IconButton
+                            iconProps={{ iconName: 'Cancel' }}
+                            title="Close"
+                            ariaLabel="Close"
+                            onClick={handleOkClick}
+                        />
+                    </div>
+                    <div className="modal-content">
+                        <p>Data updated successfully!</p>
+                        <button className="ok-button" onClick={handleOkClick}>OK</button>
+                    </div>
+                </Modal>
+            )}
         </div>
     );
 };

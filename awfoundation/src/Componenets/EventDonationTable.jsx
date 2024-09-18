@@ -2,53 +2,47 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
-import homen from './Home.jpg'; // Home image
+import homen from './Home.jpg'; // Ensure this path is correct
 import updateIcon from './update.png'; // Ensure this path is correct
-import deleteIcon from './delete.png'; // Delete image
+import deleteIcon from './delete.png'; // Ensure this path is correct
 
-const InventoryTable = () => {
-    const [records, setRecords] = useState([]);
-    const [filteredRecords, setFilteredRecords] = useState([]);
+const EventDonationTable = () => {
+    const [donations, setDonations] = useState([]);
+    const [filteredDonations, setFilteredDonations] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedRecord, setSelectedRecord] = useState(null);
+    const [selectedDonation, setSelectedDonation] = useState(null);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-    const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
     const navigate = useNavigate();
 
-    // Fetch records data
-    const fetchRecords = async () => {
+    const fetchDonations = async () => {
         try {
-            const response = await axios.get('https://667d27ca297972455f63c326.mockapi.io/crud-Donation');
-            setRecords(response.data);
-            setFilteredRecords(response.data);
+            const response = await axios.get('https://66e7cf09b17821a9d9da0963.mockapi.io/EventDonation');
+            setDonations(response.data);
+            setFilteredDonations(response.data);
         } catch (error) {
-            console.error('Error fetching records:', error);
+            console.error('Error fetching donations:', error);
         }
     };
 
     useEffect(() => {
-        fetchRecords();
+        fetchDonations();
     }, []);
 
-    // Filter records by category and itemName
     useEffect(() => {
         if (searchQuery) {
             const lowercasedQuery = searchQuery.toLowerCase();
-
-            const filtered = records.filter(record => {
-                const matchesCategory = record.category.toLowerCase().includes(lowercasedQuery);
-                const matchesItemName = record.itemName.toLowerCase().includes(lowercasedQuery);
-                return matchesCategory || matchesItemName;
+            const filtered = donations.filter(donation => {
+                const matchesDonarName = donation.Donar_Name?.toLowerCase().includes(lowercasedQuery);
+                const matchesPan = donation.Pan?.toLowerCase().includes(lowercasedQuery);
+                return matchesDonarName || matchesPan;
             });
-
-            setFilteredRecords(filtered);
+            setFilteredDonations(filtered);
         } else {
-            setFilteredRecords(records);
+            setFilteredDonations(donations);
         }
-    }, [searchQuery, records]);
+    }, [searchQuery, donations]);
 
-    // Sort records by the specified column
     const handleSort = (key) => {
         let direction = 'asc';
         if (sortConfig.key === key && sortConfig.direction === 'asc') {
@@ -56,7 +50,7 @@ const InventoryTable = () => {
         }
         setSortConfig({ key, direction });
 
-        const sortedRecords = [...filteredRecords].sort((a, b) => {
+        const sortedDonations = [...filteredDonations].sort((a, b) => {
             if (a[key] < b[key]) {
                 return direction === 'asc' ? -1 : 1;
             }
@@ -65,10 +59,9 @@ const InventoryTable = () => {
             }
             return 0;
         });
-        setFilteredRecords(sortedRecords);
+        setFilteredDonations(sortedDonations);
     };
 
-    // Determine the sort icon to display
     const getSortIcon = (key) => {
         if (sortConfig.key === key) {
             return sortConfig.direction === 'asc' ? '⬆️' : '⬇️';
@@ -76,51 +69,43 @@ const InventoryTable = () => {
         return '↕️';
     };
 
-    // Navigate to Update page
     const handleUpdate = (id) => {
-        navigate(`/inventory/update/${id}`);
+        navigate(`/event-yearly/update/${id}`);
     };
 
-    // Navigate to Homepage2
     const handleHomeClick = () => {
         navigate('/homepage2');
     };
 
-    // Open delete modal
-    const handleDeleteClick = (record) => {
-        setSelectedRecord(record);
+    const handleDeleteClick = (donation) => {
+        setSelectedDonation(donation);
         setIsDeleteModalOpen(true);
     };
 
-    // Perform deletion
     const handleDelete = async () => {
-        if (selectedRecord) {
+        if (selectedDonation) {
             try {
-                await axios.delete(`https://667d27ca297972455f63c326.mockapi.io/crud-Donation/${selectedRecord.id}`);
-                setRecords(prevRecords => prevRecords.filter(record => record.id !== selectedRecord.id));
-                setFilteredRecords(prevFiltered => prevFiltered.filter(record => record.id !== selectedRecord.id));
+                await axios.delete(`https://66e7cf09b17821a9d9da0963.mockapi.io/EventDonation/${selectedDonation.id}`);
+                await fetchDonations(); // Re-fetch data after deletion
                 setIsDeleteModalOpen(false);
-                setSelectedRecord(null);
+                setSelectedDonation(null);
             } catch (error) {
-                console.error('Error deleting record:', error);
+                console.error('Error deleting donation:', error);
             }
         }
     };
 
-    // Close delete modal
     const closeDeleteModal = () => {
         setIsDeleteModalOpen(false);
-        setSelectedRecord(null);
+        setSelectedDonation(null);
     };
 
-    // Open create modal
-    const handleAddRecord = () => {
-        navigate('/inventory/create'); // Navigate to AddInventory page
+    const handleAddDonation = () => {
+        navigate('/event-yearly/add');
     };
 
     return (
         <div className="read-container">
-            {/* Image at top-left, clickable to navigate to Homepage2 */}
             <img 
                 src={homen} 
                 alt="Home" 
@@ -128,58 +113,63 @@ const InventoryTable = () => {
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 
             />
-            <h2 className="read-heading">Inventory Records</h2>
-            <button className="add-button" onClick={handleAddRecord}>Add</button>
+            <h2 className="read-heading">Event Donations</h2>
+
+            <button className="add-button" onClick={handleAddDonation}>
+                Add
+            </button>
+
             <div className="search-bar">
                 <input
                     type="text"
-                    placeholder="Search by category or item name"
+                    placeholder="Search by Donar Name or PAN"
                     className="search-input"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
             </div>
+
             <table className="record-table">
                 <thead>
                     <tr>
-                        <th onClick={() => handleSort('date')}>
-                            Date {getSortIcon('date')}
+                        <th onClick={() => handleSort('Donar_Name')}>
+                            Donar Name {getSortIcon('Donar_Name')}
                         </th>
-                        <th onClick={() => handleSort('itemName')}>
-                            Item Name {getSortIcon('itemName')}
+                        <th onClick={() => handleSort('Pan')}>
+                            PAN {getSortIcon('Pan')}
                         </th>
-                        <th onClick={() => handleSort('category')}>
-                            Category {getSortIcon('category')}
+                        <th onClick={() => handleSort('Date')}>
+                            Date {getSortIcon('Date')}
                         </th>
-                        <th onClick={() => handleSort('quantity')}>
-                            Quantity {getSortIcon('quantity')}
+                        <th onClick={() => handleSort('ModeOfPayment')}>
+                            Mode of Payment {getSortIcon('ModeOfPayment')}
                         </th>
-                        <th onClick={() => handleSort('unitOfMeasurement')}>
-                            Unit of Measurement {getSortIcon('unitOfMeasurement')}
+                        <th onClick={() => handleSort('Amount')}>
+                            Amount {getSortIcon('Amount')}
                         </th>
-                        <th onClick={() => handleSort('description')}>
-                            Description {getSortIcon('description')}
+                        <th onClick={() => handleSort('Event')}>
+                            Event {getSortIcon('Event')}
                         </th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredRecords.length > 0 ? (
-                        filteredRecords.map(record => (
-                            <tr key={record.id}>
-                                <td>{record.date}</td>
-                                <td>{record.itemName}</td>
-                                <td>{record.category}</td>
-                                <td>{record.quantity}</td>
-                                <td>{record.unitOfMeasurement}</td>
-                                <td>{record.description}</td>
+                    {filteredDonations.length > 0 ? (
+                        filteredDonations.map(donation => (
+                            <tr key={donation.id}>
+                                <td>{donation.Donar_Name || 'N/A'}</td>
+                                <td>{donation.Pan || 'N/A'}</td>
+                                <td>{donation.Date || 'N/A'}</td>
+                                <td>{donation.ModeOfPayment || 'N/A'}</td>
+                                <td>{donation.Amount || 'N/A'}</td>
+                                <td>{donation.Event || 'N/A'}</td>
                                 <td>
                                     <img
                                         title='Update'
                                         src={updateIcon}
                                         alt="Update"
                                         className="action-icon"
-                                        onClick={() => handleUpdate(record.id)}
+                                        onClick={() => handleUpdate(donation.id)}
                                         style={{ width: '20px', cursor: 'pointer' }}
                                     />
                                     <img
@@ -187,7 +177,7 @@ const InventoryTable = () => {
                                         src={deleteIcon}
                                         alt="Delete"
                                         className="action-icon"
-                                        onClick={() => handleDeleteClick(record)}
+                                        onClick={() => handleDeleteClick(donation)}
                                         style={{ width: '20px', cursor: 'pointer', marginLeft: '10px' }}
                                     />
                                 </td>
@@ -201,7 +191,6 @@ const InventoryTable = () => {
                 </tbody>
             </table>
 
-            {/* Delete Confirmation Modal */}
             <Modal
                 isOpen={isDeleteModalOpen}
                 onDismiss={closeDeleteModal}
@@ -212,7 +201,7 @@ const InventoryTable = () => {
                     <h2 className="modal-heading">Confirmation !</h2>
                 </div>
                 <div className="modal-body">
-                    <p>Are you sure you want to delete this record?</p>
+                    <p>Are you sure you want to delete this donation?</p>
                     <div className="modal-actions">
                         <button className="cancel-button" onClick={closeDeleteModal}>No</button>
                         <button className="confirm-button" onClick={handleDelete}>Yes</button>
@@ -223,4 +212,4 @@ const InventoryTable = () => {
     );
 };
 
-export default InventoryTable;
+export default EventDonationTable;

@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
+import { IconButton } from '@fluentui/react/lib/Button';
 import Select from 'react-select';
 import { Label } from '@fluentui/react/lib/Label';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import './Create.css';
+import './Update.css';
 
 initializeIcons();
 
-const Create = ({ handlePageChange }) => {
+const StudentAdd = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [studentClass, setStudentClass] = useState('');
     const [hobbies, setHobbies] = useState([]);
-    const [gender, setGender] = useState('male');  // Default to 'male'
+    const [gender, setGender] = useState('male'); // Default gender is set to 'male'
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [studentClassError, setStudentClassError] = useState('');
     const [hobbiesError, setHobbiesError] = useState('');
     const [genderError, setGenderError] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     const navigate = useNavigate();
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -97,16 +97,20 @@ const Create = ({ handlePageChange }) => {
                 gender: capitalizeFirstLetter(gender),
             });
 
-            console.log('Form data submitted successfully:', response.data);
+            console.log('Data added successfully:', response.data);
             setIsModalOpen(true);
         } catch (error) {
-            console.error('Error submitting form data:', error);
+            console.error('Error adding form data:', error);
         }
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
-        handlePageChange('Read'); // Navigate to the Read page after submission
+        navigate('/student'); // Navigate to the Read page after closing the modal
+    };
+
+    const handleOkClick = () => {
+        closeModal(); // Close the modal and trigger redirect
     };
 
     const hobbyOptions = [
@@ -124,7 +128,7 @@ const Create = ({ handlePageChange }) => {
     ];
 
     const cancelForm = () => {
-        handlePageChange('Read');
+        navigate('/student'); // Navigate to the Read page without making changes
     };
 
     const validateForm = () => {
@@ -169,49 +173,59 @@ const Create = ({ handlePageChange }) => {
     };
 
     return (
-        <div className="create-student-form-container">
-            <div className="create-student-form-wrapper">
-                <h2 className="create-student-form-heading">Add Student Data</h2>
+        <div className="update-form-container">
+            <div className="form-wrapper">
+                <div className="form-header1">
+                    <h2 className="form-heading1">Add New Student</h2>
+
+                    
+                    {/* <div className="form-actions">
+                        <IconButton
+                            iconProps={{ iconName: 'Cancel' }}
+                            title="Cancel"
+                            onClick={cancelForm}
+                            ariaLabel="Cancel"
+                            className="cancel-icon"
+                        />
+                    </div> */}
+
+
+                </div>
                 <form onSubmit={handleSubmit}>
-                    {/* Name */}
-                    <div className="create-student-form-group">
-                        <Label className="create-student-form-label">Name</Label>
+                    <div className="form-group">
+                        <Label className="form-label">Name</Label>
                         <input
                             placeholder="Enter student name"
                             type="text"
-                            className={`create-student-form-input ${nameError ? 'input-error' : ''}`}
+                            className={`form-input ${nameError ? 'input-error' : ''}`}
                             value={name}
                             onChange={handleNameChange}
                         />
                         {nameError && (
-                            <div className="create-student-form-error-message">
+                            <div className="error-message">
                                 {nameError}
                             </div>
                         )}
                     </div>
-
-                    {/* Email */}
-                    <div className="create-student-form-group">
-                        <Label className="create-student-form-label">Email</Label>
+                    <div className="form-group">
+                        <Label className="form-label">Email</Label>
                         <input
                             placeholder="Enter student email"
                             type="text"
-                            className={`create-student-form-input ${emailError ? 'input-error' : ''}`}
+                            className={`form-input ${emailError ? 'input-error' : ''}`}
                             value={email}
                             onChange={handleEmailChange}
                         />
                         {emailError && (
-                            <div className="create-student-form-error-message">
+                            <div className="error-message">
                                 {emailError}
                             </div>
                         )}
                     </div>
-
-                    {/* Student class */}
-                    <div className="create-student-form-group">
-                        <Label className="create-student-form-label">Student class</Label>
+                    <div className="form-group">
+                        <Label className="form-label">Student class</Label>
                         <select
-                            className={`create-student-form-select ${studentClassError ? 'input-error' : ''}`}
+                            className={`form-select ${studentClassError ? 'input-error' : ''}`}
                             value={studentClass}
                             onChange={handleStudentClassChange}
                         >
@@ -222,93 +236,89 @@ const Create = ({ handlePageChange }) => {
                             <option value="Second Year">Second Year</option>
                             <option value="Third Year">Third Year</option>
                             <option value="Last Year">Last Year</option>
-                            <option value="other">Other</option>
+                            <option value="Other">Other</option>
                         </select>
                         {studentClassError && (
-                            <div className="create-student-form-error-message">
+                            <div className="error-message">
                                 {studentClassError}
                             </div>
                         )}
                     </div>
-
-                    {/* Hobbies */}
-                    <div className="create-student-form-group">
-                        <Label className="create-student-form-label">Hobbies</Label>
+                    <div className="form-group">
+                        <Label className="form-label">Hobbies</Label>
                         <Select
                             isMulti
-                            name="hobbies"
                             options={hobbyOptions}
-                            className={`create-student-form-select-input ${hobbiesError ? 'input-error' : ''}`}
-                            classNamePrefix="select"
                             value={hobbies}
                             onChange={handleHobbyChange}
+                            className={`form-select ${hobbiesError ? 'input-error' : ''}`}
+                            placeholder="Select hobbies"
                         />
                         {hobbiesError && (
-                            <div className="create-student-form-error-message">
+                            <div className="error-message">
                                 {hobbiesError}
                             </div>
                         )}
                     </div>
-
-                    {/* Gender */}
-                    <div className="create-student-form-group">
-                        <Label className="create-student-form-label">Gender</Label>
-                        <div className="create-student-form-radio-group">
-                            <input
-                                className="create-student-form-radio-input"
-                                type="radio"
-                                id="male"
-                                name="gender"
-                                value="male"
-                                checked={gender === 'male'}
-                                onChange={handleGenderChange}
-                            />
-                            <label htmlFor="male" className="create-student-form-radio-label">Male</label>
-                            <input
-                                className="create-student-form-radio-input"
-                                type="radio"
-                                id="female"
-                                name="gender"
-                                value="female"
-                                checked={gender === 'female'}
-                                onChange={handleGenderChange}
-                            />
-                            <label htmlFor="female" className="create-student-form-radio-label">Female</label>
+                    <div className="form-group">
+                        <Label className="form-label">Gender</Label>
+                        <div className="form-radio-group">
+                            <label>
+                                <input
+                                    type="radio"
+                                    value="male"
+                                    checked={gender === 'male'}
+                                    onChange={handleGenderChange}
+                                />
+                                Male
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    value="female"
+                                    checked={gender === 'female'}
+                                    onChange={handleGenderChange}
+                                />
+                                Female
+                            </label>
                         </div>
                         {genderError && (
-                            <div className="create-student-form-error-message">
+                            <div className="error-message">
                                 {genderError}
                             </div>
                         )}
                     </div>
-
-
-                    {/* Cancel Button */}
-                    <button type="button" className="create-student-form-button-cancel-button" onClick={cancelForm}>
-                        Cancel
-                    </button>
-
-                    {/* Submit Button */}
-                    <button type="submit" className="create-student-form-button">Submit</button>
-
+                    <div className="form-actions">
+                    <button type="button" className="cancel-button2" onClick={cancelForm}>Cancel</button> 
+                        <button type="submit" className="submit-button">Submit</button>
+                    </div>
                 </form>
-
-                {/* Modal */}
-                {isModalOpen && (
-                    <Modal
-                        isOpen={isModalOpen}
-                        onDismiss={closeModal}
-                    >
-                        <div className="modal-content">
-                            <h2>Form Submitted</h2>
-                            <p>Student data has been successfully submitted.</p>
-                            <button onClick={closeModal}>Close</button>
-                        </div>
-                    </Modal>
-                )}
             </div>
+            <Modal
+                isOpen={isModalOpen}
+                onDismiss={closeModal}
+                isBlocking={false}
+                containerClassName="modal-container"
+            >
+                <div className="modal-header">
+                    <h3 className="modal-title">Success</h3>
+                    <IconButton
+                        iconProps={{ iconName: 'Cancel' }}
+                        title="Close"
+                        onClick={closeModal}
+                        ariaLabel="Close"
+                        className="close-icon"
+                    />
+                </div>
+                <div className="modal-body">
+                    <p>Data added successfully!</p>
+                </div>
+                <div className="modal-footer">
+                    <button onClick={handleOkClick} className="ok-button">OK</button>
+                </div>
+            </Modal>
         </div>
     );
 };
 
-export default Create;
+export default StudentAdd;

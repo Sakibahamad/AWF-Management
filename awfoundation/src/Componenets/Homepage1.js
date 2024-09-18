@@ -91,8 +91,8 @@ function Homepage1() {
               />
               {isDropdownVisible && (
                 <div className="dropdown-menu" ref={dropdownRef}>
-                  <div className="dropdown-item" onClick={() => handleMenuItemClick('/register')}>Register</div>
-                  <div className="dropdown-item" onClick={() => handleMenuItemClick('/login')}>Login</div>
+                 <div className="dropdown-item" onClick={() => handleMenuItemClick('/login')}>Login</div>
+                  {/* <div className="dropdown-item" onClick={() => handleMenuItemClick('/register')}></div> */}
                 </div>
               )}
             </div>

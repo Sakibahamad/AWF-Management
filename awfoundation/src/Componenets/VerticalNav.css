@@ -1,10 +1,11 @@
+/* Sidebar base styles */
 .sidebar {
   position: fixed;
   top: 63px;
   left: 0;
   width: 164px;
   height: 83%;
-  background-color: rgba(0, 0, 0, 0.7); /* Updated to transparent background */
+  background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   display: flex;
@@ -13,24 +14,58 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Sidebar is hidden by default */
 .sidebar-hidden {
   transform: translateX(-100%);
 }
 
-/* Sidebar is shown when visible */
 .sidebar-visible {
   transform: translateX(0);
 }
 
 .sidebar-item {
   padding: 15px;
-  color: white; /* Ensure text remains readable */
+  color: white;
   cursor: pointer;
   text-align: center;
   border-bottom: 1px solid #444;
+  position: relative; /* To position the dropdown relative to the item */
 }
 
 .sidebar-item:hover {
-  background-color: rgba(15, 15, 15, 0.8); /* Slightly transparent hover effect */
+  background-color: rgba(15, 15, 15, 0.8);
+}
+
+/* Dropdown container - initially hidden */
+.dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position to the right of the sidebar */
+  background-color: rgba(0, 0, 0, 0.7); /* Match the sidebar background */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  padding: 10px;
+  border: 1px solid #444;
+  z-index: 1001;
+}
+
+/* Show dropdown when hovering over the item */
+.sidebar-item:hover .dropdown {
+  display: block;
+}
+
+/* Dropdown item styles */
+.dropdown-item {
+  padding: 8px 15px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 1px solid #444;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
+}
+
+.dropdown-item:last-child {
+  border-bottom: none; /* Remove bottom border from the last item */
 }
