@@ -101,6 +101,9 @@ const InkideUpdate = () => {
         if (pan.trim() === '') {
             setPanError('PAN field is required.');
             isValid = false;
+        } else if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(pan)) {
+            setPanError('Invalid PAN format. It should be in the format: XXXXX1234X.');
+            isValid = false;
         } else {
             setPanError('');
         }
@@ -162,7 +165,7 @@ const InkideUpdate = () => {
                             <div className="update-inkind-form-error-message">
                                 {panError}
                             </div>
-                        )}
+                        )}  
                     </div>
                     <div className="update-inkind-form-group">
                         <Label className="update-inkind-form-label">Date</Label>

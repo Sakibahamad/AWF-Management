@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
 import { Label } from '@fluentui/react/lib/Label';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-// import './EventDonationUpdate.css';
+import './EventDonationUpdate.css';
 
 initializeIcons();
 
@@ -57,6 +57,8 @@ const EventDonationUpdate = () => {
         }
     };
 
+    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;  // PAN validation regex
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -100,8 +102,8 @@ const EventDonationUpdate = () => {
             setDonorNameError('');
         }
 
-        if (pan.trim() === '') {  // Validate PAN field
-            setPanError('PAN field is required.');
+        if (pan.trim() === '' || !panRegex.test(pan)) {  // Validate PAN format
+            setPanError('PAN must be 10 characters in the format: 5 letters, 4 digits, 1 letter.');
             isValid = false;
         } else {
             setPanError('');
@@ -249,23 +251,30 @@ const EventDonationUpdate = () => {
                                 Cancel
                             </button>
                             <button type="submit" className="update-donation-form-submit">
-                                Update
+                                Update 
                             </button>
                         </div>
                     </form>
                 ) : (
                     <p>Loading...</p>
                 )}
-
-                {isModalOpen && (
-                    <Modal isOpen={isModalOpen} onDismiss={closeModal}>
-                        <div className="modal-content">
-                            <h3>Donation Updated Successfully!</h3>
-                            <button onClick={closeModal}>Close</button>
-                        </div>
-                    </Modal>
-                )}
             </div>
+
+            <Modal
+                isOpen={isModalOpen}
+                onDismiss={closeModal}
+                isBlocking={false}
+            >
+                <div className="modal-header">
+                    <h3>Success</h3>
+                </div>
+                <div className="modal-body">
+                    <p>Donation updated successfully!</p>
+                </div>
+                <div className="modal-footer">
+                    <button onClick={closeModal}>Close</button>
+                </div>
+            </Modal>
         </div>
     );
 };

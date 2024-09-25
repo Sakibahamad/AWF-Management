@@ -30,6 +30,23 @@ const EventDonationAdd = () => {
         errorSetter(value.trim() === '' ? 'This field is required.' : '');
     };
 
+    const validatePan = (pan) => {
+        const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        return panRegex.test(pan);
+    };
+
+    const handlePanChange = (e) => {
+        const value = e.target.value.toUpperCase(); // PAN should be in uppercase
+        setPan(value);
+        if (value.trim() === '') {
+            setPanError('PAN field is required.');
+        } else if (!validatePan(value)) {
+            setPanError('Invalid PAN format. It should be 5 letters, 4 digits, and 1 letter (e.g., ABCDE1234F).');
+        } else {
+            setPanError('');
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -81,6 +98,9 @@ const EventDonationAdd = () => {
 
         if (pan.trim() === '') {
             setPanError('PAN field is required.');
+            isValid = false;
+        } else if (!validatePan(pan)) {
+            setPanError('Invalid PAN format.');
             isValid = false;
         } else {
             setPanError('');
@@ -144,7 +164,7 @@ const EventDonationAdd = () => {
                             type="text"
                             className={`create-donation-form-input ${panError ? 'input-error' : ''}`}
                             value={pan}
-                            onChange={handleChange(setPan, setPanError)}
+                            onChange={handlePanChange}
                         />
                         {panError && (
                             <div className="create-donation-form-error-message">

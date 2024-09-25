@@ -1,0 +1,50 @@
+#bottom {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+  }
+  
+  .widget {
+    margin-left: 26px;
+    height: 368px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  .widget h3 {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .widget ul {
+
+    width: 529px;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .widget ul li {
+    margin-bottom: 10px;
+    color: #7f8c8d;
+    font-size: 16px;
+  }
+  
+  .widget iframe {
+    width: 100%;
+    border: none;
+  }
+  
+  .home-image {
+    position: absolute; /* Position the image absolutely */
+    top: 4px; /* Adjust the top distance to your preference */
+    left: 4px; /* Adjust the left distance to your preference */
+    width: 76px; /* Adjust the width */
+    height: auto;
+    cursor: pointer; /* Add a pointer to indicate it's clickable */
+  }
+  
+  

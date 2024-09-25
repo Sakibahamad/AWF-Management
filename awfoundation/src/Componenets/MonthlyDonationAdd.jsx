@@ -77,8 +77,12 @@ const MonthlyDonationAdd = () => {
             setDonarNameError('');
         }
 
+        const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/i; // Regular expression for PAN format
         if (pan.trim() === '') {
             setPanError('PAN field is required.');
+            isValid = false;
+        } else if (!panRegex.test(pan)) {
+            setPanError('PAN must be 10 alphanumeric characters (e.g., ABCDE1234F).');
             isValid = false;
         } else {
             setPanError('');

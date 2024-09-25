@@ -29,6 +29,8 @@ const InkindAdd = () => {
         errorSetter(value.trim() === '' ? 'This field is required.' : '');
     };
 
+    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;  // PAN validation regex
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -79,8 +81,8 @@ const InkindAdd = () => {
             setNameError('');
         }
 
-        if (pan.trim() === '') {
-            setPanError('PAN field is required.');
+        if (pan.trim() === '' || !panRegex.test(pan)) {  // Validate PAN format
+            setPanError('PAN must be 10 characters in the format: 5 letters, 4 digits, 1 letter.');
             isValid = false;
         } else {
             setPanError('');

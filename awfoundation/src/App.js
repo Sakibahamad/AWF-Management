@@ -8,8 +8,8 @@ import FeatureSection from './Componenets/FeatureSection';
 import Bottom from './Componenets/Bottom';
 import Gallary from './Componenets/Gallary';
 import Read from './Componenets/Read';
-import VerticalNav from './Componenets/VerticalNav'; // Import VerticalNav
-import Update from './Componenets/Update'; // Import Update
+import VerticalNav from './Componenets/VerticalNav'; 
+import Update from './Componenets/Update'; 
 import ExpenseTable from './Componenets/ExpenseTable';
 import ExpenseUpdate from './Componenets/ExpenseUpdate';
 import InventoryTable from './Componenets/InventoryTable';
@@ -29,6 +29,13 @@ import EmployeeAdd from './Componenets/EmployeeAdd';
 import InkindTable from './Componenets/InkindTable';
 import InkindAdd from './Componenets/InkindAdd';
 import InkideUpdate from './Componenets/InkideUpdate';
+import FeachureSection1 from './Componenets/FeachureSection1';
+import Galary1 from './Componenets/Galary1';
+import Bottom1 from './Componenets/Bottom1';
+import FeatureSection2 from './Componenets/FeachureSection2';
+import Bottom2 from './Componenets/Bottom2';
+import Galary2 from './Componenets/Galary2';
+
 
 function App() {
   return (
@@ -44,6 +51,12 @@ function App() {
             <Route path="/feature" element={<FeatureSection />} />
             <Route path="/bottom" element={<Bottom />} />
             <Route path="/gallary" element={<Gallary />} />
+            <Route path="/feature1" element={<FeachureSection1 />} />
+            <Route path="/gallary1" element={<Galary1 />} />
+            <Route path="/bottom1" element={<Bottom1 />} />
+            <Route path="/feature2" element={<FeatureSection2 />} />
+            <Route path="/bottom2" element={<Bottom2 />} />
+            <Route path="/gallary2" element={<Galary2 />} />
 
             <Route path="/student" element={<Read />} />
             <Route path="/students/Add" element={<StudentAdd />} />

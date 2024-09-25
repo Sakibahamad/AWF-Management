@@ -1,0 +1,119 @@
+.update-donation-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.update-donation-form-wrapper {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.update-donation-form-heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.update-donation-form-group {
+    margin-bottom: 15px;
+}
+
+.update-donation-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.update-donation-form-input,
+.update-donation-form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.update-donation-form-input:focus,
+.update-donation-form-select:focus {
+    border-color: #0078d4;
+    outline: none;
+}
+
+.input-error {
+    border-color: #e63946;
+}
+
+.update-donation-form-error-message {
+    color: #e63946;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.update-donation-form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-donation-form-cancel,
+.update-donation-form-submit {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.update-donation-form-cancel {
+    background-color: #b91d1d;
+    color: #f0ebeb;
+}
+
+.update-donation-form-submit {
+    background-color: #0078d4;
+    color: white;
+}
+
+.update-donation-form-cancel:hover {
+    background-color: #ad0505;
+}
+
+.update-donation-form-submit:hover {
+    background-color: #005a9e;
+}
+
+.modal-header {
+    padding: 20px;
+    background-color: #0078d4;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 10px;
+    text-align: right;
+}
+
+.modal-footer button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0078d4;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-footer button:hover {
+    background-color: #005a9e;
+}

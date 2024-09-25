@@ -91,8 +91,12 @@ const MonthlyDonationUpdate = () => {
             setDonarNameError('');
         }
 
+        const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
         if (pan.trim() === '') {
             setPanError('PAN field is required.');
+            isValid = false;
+        } else if (!panRegex.test(pan)) {
+            setPanError('PAN format is invalid. Example: ABCDE1234F');
             isValid = false;
         } else {
             setPanError('');

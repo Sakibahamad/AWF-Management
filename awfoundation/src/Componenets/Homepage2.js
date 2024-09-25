@@ -62,9 +62,9 @@ function Homepage2() {
           <div className="navbar-left">
             <img src={advika} alt="Advika" className="advika-image" /> 
             <a href="#home">Home</a>
-            <a onClick={() => navigate('/feature')}>About Us</a>
-            <a  onClick={() => navigate('/Bottom')}>Contact Us</a>
-            <a  onClick={() => navigate('/Gallary')}>Gallery</a>
+            <a onClick={() => navigate('/feature2')}>About Us</a>
+            <a  onClick={() => navigate('/bottom2')}>Contact Us</a>
+            <a  onClick={() => navigate('/gallary2')}>Gallery</a>
           </div>
           <div className="navbar-right">
             <img

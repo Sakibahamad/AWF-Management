@@ -76,13 +76,13 @@ function Homepage1() {
             <div className="navbar-left">
               <img src={advika} alt="Advika" className="advika-image" /> 
               <a href="#home" onClick={() => window.scrollTo(0, 0)}>Home</a>
-              <a onClick={() => navigate('/feature')}>About Us</a>
-              <a  onClick={() => navigate('/Bottom')}>Contact Us</a>
-              <a onClick={() => navigate('/Gallary')}>Gallery</a>
+              <a onClick={() => navigate('/feature1')}>About Us</a>
+              <a  onClick={() => navigate('/bottom1')}>Contact Us</a>
+              <a onClick={() => navigate('/gallary1')}>Gallery</a>
             </div>
           )}
           {!isAuthenticated && (
-            <div className="navbar-right">
+            <div className="navbar-right">x
               <img
                 src={profile}
                 alt="Profile"
