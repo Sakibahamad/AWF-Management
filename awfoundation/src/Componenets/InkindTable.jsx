@@ -109,6 +109,7 @@ const InkindTable = () => {
             <img 
                 src={homen} 
                 alt="Home" 
+                title='Home'
                 className="home-icon" 
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 

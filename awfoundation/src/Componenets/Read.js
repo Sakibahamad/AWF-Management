@@ -32,12 +32,16 @@ const Read = () => {
         fetchStudents();
     }, []);
 
-    // Filter students by name
+    // Filter students by search query
     useEffect(() => {
         if (searchQuery) {
             const lowercasedQuery = searchQuery.toLowerCase();
             const filtered = students.filter(student =>
-                student.name.toLowerCase().includes(lowercasedQuery)
+                student.name.toLowerCase().includes(lowercasedQuery) ||
+                student.email.toLowerCase().includes(lowercasedQuery) ||
+                student.studentClass.toLowerCase().includes(lowercasedQuery) ||
+                student.hobbies.some(hobby => hobby.toLowerCase().includes(lowercasedQuery)) || 
+                student.gender.toLowerCase().includes(lowercasedQuery)
             );
             setFilteredStudents(filtered);
         } else {
@@ -127,6 +131,7 @@ const Read = () => {
             <img 
                 src={homen} 
                 alt="Home" 
+                title='Home'
                 className="home-icon" 
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 
@@ -136,7 +141,7 @@ const Read = () => {
             <div className="search-bar">
                 <input
                     type="text"
-                    placeholder="Search by name"
+                    placeholder="Search by name, email, class, hobbies, or gender"
                     className="search-input"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}

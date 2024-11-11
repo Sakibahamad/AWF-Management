@@ -1,16 +1,16 @@
 /* Sidebar base styles */
 .sidebar {
   position: fixed;
-  top: 63px;
+  top: 88px;
   left: 0;
   width: 164px;
   height: 83%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 30px;
   transition: transform 0.3s ease-in-out;
 }
 

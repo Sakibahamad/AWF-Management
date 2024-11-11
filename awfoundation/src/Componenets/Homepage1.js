@@ -41,7 +41,7 @@ function Homepage1() {
 
     checkAuthStatus();
 
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event) => {       
       if (
         dropdownRef.current && !dropdownRef.current.contains(event.target)
       ) {
@@ -82,11 +82,12 @@ function Homepage1() {
             </div>
           )}
           {!isAuthenticated && (
-            <div className="navbar-right">x
+            <div className="navbar-right">
               <img
                 src={profile}
                 alt="Profile"
                 className="profile-image"
+                title='Login'
                 onClick={toggleDropdown}
               />
               {isDropdownVisible && (

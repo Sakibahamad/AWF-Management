@@ -37,6 +37,7 @@ const FeatureSection1 = () => {
         <img
           src={home2}
           alt="Home"
+         title='Home'
           className="home"
           onClick={handleHomeClick}
         />

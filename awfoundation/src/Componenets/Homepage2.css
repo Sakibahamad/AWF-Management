@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Adjust transparency */
+  background-color: rgba(0, 0, 0, 0.9); /* Adjust transparency */
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -49,6 +49,7 @@
 }
 
 .profile-image {
+  margin-left: 20px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -59,7 +60,7 @@
 .dropdown-menu {
   position: absolute;
   top: 64px;
-  right: 27px;
+  right: 37px;
   background-color: #333;
   color: white;
   border-radius: 5px;
@@ -140,9 +141,10 @@
 
 /* Advika image */
 .advika-image {
+  border-radius: 14px;
   margin-left: 0;
-  width: 109px;
-  height: auto;
+  width: 117px;
+  height: 55px;
   margin-right: 20px; /* Spacing between image and navigation links */
 }
 
@@ -184,3 +186,30 @@
   width: 100%;
   height: 100%;
 }
+
+
+.username {
+  margin-top: 5px;
+  font-size: 14px;
+  color: white;
+  text-align: center; /* Center the username below the profile image */
+}
+
+/* Humbel image (for toggling sidebar) */
+.humbel-image {
+  margin-left: -7px;
+  margin-top: 82px;
+  position: fixed;
+  top: 70px; /* Align with the header */
+  left: 10px;
+  width: 35px;
+  height: 19px;
+  cursor: pointer;
+  z-index: 1001; /* Ensure it appears above other elements */
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.humbel-image:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+

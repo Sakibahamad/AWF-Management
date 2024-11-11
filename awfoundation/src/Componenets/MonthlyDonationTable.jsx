@@ -108,7 +108,8 @@ const MonthlyDonationTable = () => {
         <div className="read-container">
             <img 
                 src={homen} 
-                alt="Home" 
+                alt="Home"
+                title='Home'
                 className="home-icon" 
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 

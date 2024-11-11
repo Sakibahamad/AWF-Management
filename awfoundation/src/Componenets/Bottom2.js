@@ -51,6 +51,7 @@ const Bottom2 = () => {
             <img 
               src={Home} 
               alt="Home" 
+              title='Home'
               className="home-image" 
               onClick={handleHomeClick} // Add onClick event to navigate to /sign-out
             />

@@ -1,173 +1,176 @@
-/* Container for the Read component */
+/* General styles for the read container */
 .read-container {
-    margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    position: relative; 
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Flexbox for top section (image + heading + button) */
-.read-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Align heading and button on opposite sides */
-    margin-bottom: 20px;
-}
-
-/* Home image styling */
-.read-container img {
-    width: 80px;
-    cursor: pointer;
-}
-
-/* Heading style */
+/* Heading styles */
 .read-heading {
+    text-align: center;
     color: #0078d4;
-    font-size: 24px;
-    flex-grow: 1;
-    text-align: center;
-    margin: 0;
-}
-
-/* Add button styling */
-.add-button {
-    margin-top: 28px;
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.add-button:hover {
-    background-color: darkgreen;
-}
-
-/* Search bar styling */
-.search-bar {
+    font-size: 28px;
     margin-bottom: 20px;
+}
+
+/* Search bar styles */
+.search-bar {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .search-input {
-    margin-top: 26px;
-    width: 100%;
-    max-width: 300px;
     padding: 10px;
+    width: 60%;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box;
+    outline: none;
 }
 
-/* Table styling */
-.student-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
+.search-input:focus {
+    border-color: #0078d4;
+}
+
+/* Button styles */
+.add-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+/* Scrollable table container */
+.student-table-container {
+    max-height: 300px; /* Fixed height for scroll */
+    overflow-y: auto; /* Enable vertical scroll */
+    overflow-x: hidden; /* Hide horizontal scroll */
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Make table header fixed */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.student-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #0078d4; /* Same as the header color */
+    color: white;
+    z-index: 2; /* Ensure header stays on top */
 }
 
 .student-table th, .student-table td {
-    padding: 8px 15px;
+    padding: 12px 20px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-.student-table th {
-    background-color: #0078d4;
-    color: white;
-    font-weight: bold;
 }
 
 .student-table tbody tr:hover {
     background-color: #f1f1f1;
 }
 
-/* Action buttons replaced by icons */
-.update-button, .delete-button {
-    background: none;
-    border: none;
+/* Scrollbar styling for modern browsers */
+.student-table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.student-table-container::-webkit-scrollbar-thumb {
+    background-color: #0078d4; /* Color of the scrollbar thumb */
+    border-radius: 10px;
+}
+
+.student-table-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Scrollbar track color */
+}
+
+/* Home icon styling */
+.home-icon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
     cursor: pointer;
-}
-
-.update-button img, .delete-button img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-}
-
-.update-button:hover img, .delete-button:hover img {
-    transform: scale(1.2);
 }
 
 /* Modal styles */
 .modal-container {
     padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    width: 500px;
-    margin: 0 auto;
 }
 
 .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .modal-heading {
+    color: #d9534f;
     font-size: 20px;
-    color: #0078d4;
-    margin: 0;
-}
-
-.modal-close-button {
-    cursor: pointer;
-    font-size: 24px;
-    color: #333;
 }
 
 .modal-body {
-    padding: 20px;
-    text-align: center;
-}
-
-.modal-actions {
-    display: flex;
-    justify-content: space-around;
     margin-top: 20px;
 }
 
-.confirm-button, .cancel-button {
+.modal-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.cancel-button, .confirm-button {
     padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-}
-
-.confirm-button {
-    background-color: red;
-    color: white;
-}
-
-.confirm-button:hover {
-    background-color: rgb(197, 10, 10);
+    margin-left: 10px;
 }
 
 .cancel-button {
-    background-color: #ca1111;
-    color: rgb(241, 238, 238);
+    background-color: #6c757d;
+    color: white;
+}
+
+.confirm-button {
+    background-color: #d9534f;
+    color: white;
 }
 
 .cancel-button:hover {
-    background-color: #c20707;
+    background-color: #5a6268;
+}
+
+.confirm-button:hover {
+    background-color: #c9302c;
+}
+
+/* Icon button styles */
+.icon {
+    cursor: pointer;
+}
+
+.update-icon, .delete-icon {
+    width: 24px;
+    margin-right: 8px;
 }

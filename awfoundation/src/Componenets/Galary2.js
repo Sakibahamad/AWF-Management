@@ -78,6 +78,7 @@ const Galary2 = () => {
         <img
           src={Home1}
           alt="Home"
+          title='Home'
           className="home1-icon"
           onClick={handleHomeClick} // Click event triggers navigation
         />

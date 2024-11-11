@@ -13,7 +13,142 @@
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;/* EmployeeAdd.css */
+
+.create-employee-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.create-employee-form-wrapper {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.create-employee-form-heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.create-employee-form-group {
+    margin-bottom: 15px;
+}
+
+.create-employee-form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.create-employee-form-input,
+.create-employee-form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.create-employee-form-input:focus,
+.create-employee-form-select:focus {
+    border-color: #0078d4;
+    outline: none;
+}
+
+.create-employee-form-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.create-employee-form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-employee-form-submit-button,
+.create-employee-form-cancel-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-employee-form-submit-button {
+    background-color: #0078d4;
+    color: #fff;
+}
+
+.create-employee-form-submit-button:hover {
+    background-color: #005a9e;
+}
+
+.create-employee-form-cancel-button {
+    background-color: #da3636;
+    color: #f8f5f5;
+}
+
+.create-employee-form-cancel-button:hover {
+    background-color: #ca0d0d;
+}
+
+/* Modal Styling */
+.confirmation-modal {
+    padding: 20px;
+    position: relative;
+}
+
+.confirmation-modal-content {
+    text-align: center;
+}
+
+.confirmation-modal-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0078d4;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.confirmation-modal-button:hover {
+    background-color: #005a9e;
+}
+
+/* Cross icon styling */
+.modal-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.modal-close-icon:hover {
+    color: #ff0000;
+}
+
     width: 100%;
     max-width: 600px;
 }

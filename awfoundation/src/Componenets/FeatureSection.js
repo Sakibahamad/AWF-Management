@@ -10,8 +10,8 @@ import other from './other.jpg';
 const FeatureSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const handleImageClick = (index) => {
-    setActiveIndex(index);
+  const handleImageClick = (index) => { 
+    setActiveIndex(index); 
   };
 
   const features = [
