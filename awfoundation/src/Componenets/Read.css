@@ -1,12 +1,16 @@
 /* General styles for the read container */
+/* General styles for the read container */
 .read-container {
     padding: 20px;
     background-color: #f7f7f7;
     border-radius: 10px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+    width: 78%; /* Set the width to 70% */
+    position: fixed; /* Fix the container at the bottom right */
+    bottom: -110px; /* Adjust the distance from the bottom */
+    right: -78px; /* Adjust the distance from the right */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    z-index: 950; /* Ensure it stays on top of other content */
+    max-width: none; /* Remove the max-width limitation */
 }
 
 /* Heading styles */
@@ -24,6 +28,7 @@
 }
 
 .search-input {
+    margin-top: -1px;
     padding: 10px;
     width: 60%;
     font-size: 16px;
@@ -67,6 +72,7 @@
 
 /* Make table header fixed */
 .student-table {
+    margin-top: -60px;
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;

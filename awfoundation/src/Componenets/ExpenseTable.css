@@ -1,6 +1,4 @@
-/* ExpenseTable.css */
 
-/* Container for the Read component */
 .read-container {
     margin: 0 auto;
     padding: 20px;
@@ -49,7 +47,7 @@
 }
 
 .search-input {
-    margin-right: 827px;
+    margin-left: -690px;
     width: 100%;
     max-width: 300px;
     padding: 10px;

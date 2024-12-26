@@ -8,8 +8,8 @@ import FeatureSection from './Componenets/FeatureSection';
 import Bottom from './Componenets/Bottom';
 import Gallary from './Componenets/Gallary';
 import Read from './Componenets/Read';
-import VerticalNav from './Componenets/VerticalNav'; 
-import Update from './Componenets/Update'; 
+import VerticalNav from './Componenets/VerticalNav';
+import Update from './Componenets/Update';
 import ExpenseTable from './Componenets/ExpenseTable';
 import ExpenseUpdate from './Componenets/ExpenseUpdate';
 import InventoryTable from './Componenets/InventoryTable';
@@ -36,21 +36,23 @@ import FeatureSection2 from './Componenets/FeachureSection2';
 import Bottom2 from './Componenets/Bottom2';
 import Galary2 from './Componenets/Galary2';
 
-
 function App() {
   return (
     <Router>
       <div style={{ display: 'flex' }}>
-        <VerticalNav />
+        <Homepage2 />
         <div style={{ flex: 1 }}>
           <Routes>
+
             <Route path="/" element={<Homepage1 />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/homepage" element={<Homepage2 />} />
+            {/* <Route path="/homepage" element={<Homepage2 />} /> */}
             <Route path="/feature" element={<FeatureSection />} />
             <Route path="/bottom" element={<Bottom />} />
             <Route path="/gallary" element={<Gallary />} />
+
+            {/* Feature & Gallery Variants */}
             <Route path="/feature1" element={<FeachureSection1 />} />
             <Route path="/gallary1" element={<Galary1 />} />
             <Route path="/bottom1" element={<Bottom1 />} />
@@ -58,22 +60,27 @@ function App() {
             <Route path="/bottom2" element={<Bottom2 />} />
             <Route path="/gallary2" element={<Galary2 />} />
 
+            {/* Student Routes */}
             <Route path="/student" element={<Read />} />
             <Route path="/students/Add" element={<StudentAdd />} />
-            <Route path="/student/update/:id" element={<Update />} /> 
+            <Route path="/student/update/:id" element={<Update />} />
 
+            {/* Expense Routes */}
             <Route path="/expenses" element={<ExpenseTable />} />
             <Route path="/AddExpense" element={<ExpenseAdd />} />
             <Route path="/ExpenseUpdate/:id" element={<ExpenseUpdate />} />
 
+            {/* Inventory Routes */}
             <Route path="/inventory" element={<InventoryTable />} />
             <Route path="/inventory/create" element={<AddInventory />} />
             <Route path="/inventory/update/:id" element={<InventoryUpdate />} />
 
+            {/* Employee Routes */}
             <Route path="/employee" element={<EmployeeTable />} />
             <Route path="/employee/create1" element={<EmployeeAdd />} />
             <Route path="/employee/update/:id" element={<EmployeeUpdate />} />
 
+            {/* Donation Routes */}
             <Route path="/monthly" element={<MonthlyDonationTable />} />
             <Route path="/monthly/add" element={<MonthlyDonationAdd />} />
             <Route path="/Monthly/update/:id" element={<MonthlyDonationUpdate />} />
@@ -82,14 +89,18 @@ function App() {
             <Route path="/event-yearly/add" element={<EventDonationAdd />} />
             <Route path="/event-yearly/update/:id" element={<EventDonationUpdate />} />
 
+            {/* In-Kind Donation Routes */}
             <Route path="/in-kind" element={<InkindTable />} />
             <Route path="/inkind/add" element={<InkindAdd />} />
             <Route path="/in-kind/update/:id" element={<InkideUpdate />} />
 
+            {/* Additional Routes */}
             <Route path="/homepage1" element={<Homepage1 />} />
             <Route path="/homepage2" element={<Homepage2 />} />
             <Route path="/sign-out" element={<Homepage1 />} />
 
+            {/* Fallback Route for 404 */}
+            <Route path="*" element={<div>404 - Page Not Found</div>} />
           </Routes>
         </div>
       </div>
