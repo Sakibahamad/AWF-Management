@@ -1,8 +1,8 @@
 /* InventoryUpdate.css */
 
 .update-inventory-form-container {
-    height: 811px;
-    padding: 20px;
+    height:840px;
+    padding: -19x;
     max-width: 654px;
     margin: 0 auto;
     border-radius: 8px; 
@@ -10,6 +10,7 @@
 }
 
 .update-inventory-form-wrapper {
+    margin-top: 100px;
     padding: 20px;
 }
 

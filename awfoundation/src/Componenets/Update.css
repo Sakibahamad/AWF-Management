@@ -10,6 +10,7 @@
 
 /* Wrapper for the form */
 .form-wrapper {
+    margin-top: 83px;
     background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
     padding: 30px 40px;
     border-radius: 8px;
