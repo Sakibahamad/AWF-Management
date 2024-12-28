@@ -29,10 +29,20 @@
   text-align: center;
   border-bottom: 1px solid #444;
   position: relative; /* To position the dropdown relative to the item */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sidebar-item:hover {
   background-color: rgba(15, 15, 15, 0.8);
+  color: #007bff; /* Change text color on hover */
+}
+
+/* Active sidebar item styles */
+.sidebar-item.active {
+  background-color: #007bff; /* Highlight color for the active item */
+  color: white; /* Ensure the text remains readable */
+  font-weight: bold; /* Make the text bold for emphasis */
+  border-left: 4px solid white; /* Add an accent on the left for the active item */
 }
 
 /* Dropdown container - initially hidden */
@@ -40,17 +50,22 @@
   position: absolute;
   top: 0;
   left: 100%; /* Position to the right of the sidebar */
-  background-color: rgba(0, 0, 0, 0.7); /* Match the sidebar background */
+  background-color: rgba(0, 0, 0, 0.85); /* Slightly lighter background for the dropdown */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   display: none; /* Hidden by default */
   padding: 10px;
   border: 1px solid #444;
   z-index: 1001;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-10px); /* Add subtle animation */
+  opacity: 0;
 }
 
 /* Show dropdown when hovering over the item */
 .sidebar-item:hover .dropdown {
   display: block;
+  transform: translateX(0); /* Reset animation */
+  opacity: 1;
 }
 
 /* Dropdown item styles */
@@ -60,12 +75,71 @@
   cursor: pointer;
   white-space: nowrap;
   border-bottom: 1px solid #444;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-item:hover {
   background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
+  color: #007bff; /* Change text color on hover */
 }
 
 .dropdown-item:last-child {
   border-bottom: none; /* Remove bottom border from the last item */
+}
+
+/* Improve sidebar visibility on smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 140px; /* Slightly narrower for smaller screens */
+  }
+  .sidebar-item {
+    font-size: 14px; /* Reduce font size */
+    padding: 12px; /* Adjust padding */
+  }
+  .dropdown-item {
+    font-size: 12px; /* Reduce dropdown font size */
+    padding: 6px 12px;
+  }
+}
+
+/* Footer section styles */
+.sidebar-footer {
+  margin-left: 165px;
+  width: 715%;
+  margin-top: auto; /* Push the footer to the bottom of the sidebar */
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #fcfafa;
+  background-color: rgba(247, 243, 243, 0.9);
+}
+
+/* Footer buttons */
+.footer-btn {
+  margin-bottom: 5px;
+  margin-left: 477px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 520px;
+  transition: background-color 0.3s ease;
+}
+
+.footer-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.footer-btn:active {
+  background-color: #003f7f; /* Even darker shade on click */
+}
+
+.back-btn {
+  margin-right: 5px;
+}
+
+.next-btn {
+  margin-left: 5px;
 }

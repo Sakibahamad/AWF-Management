@@ -3,7 +3,6 @@ import './Homepage1.css';
 import profile from '../Componenets/profile2.jpg';
 import advika from '../Componenets/Advika.png'; 
 import { useNavigate } from 'react-router-dom';
-import VerticalNav from './VerticalNav.js'; 
 import ImageSlider from './ImageSlider.js'; 
 import FeatureSection from './FeatureSection.js';
 import Info from './Info.js';
@@ -110,11 +109,6 @@ function Homepage1() {
               <div className="bar"></div>
             </div>
 
-            <VerticalNav 
-              isSidebarVisible={isSidebarVisible}
-              handleMenuItemClick={handleMenuItemClick}
-              sidebarRef={sidebarRef}
-            />
           </>
         )}
 

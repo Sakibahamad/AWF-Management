@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
 import './ExpenseTable.css'; // Ensure you have styles for the icons and other elements
-import homen from './Home.jpg'; // Home image
+// import homen from './Home.jpg'; // Home image
 import updateIcon from './update.png'; // Ensure this path is correct
 import deleteIcon from './delete.png'; // Ensure this path is correct
 
@@ -125,14 +125,14 @@ const ExpenseTable = () => {
     return (
         <div className="read-container">
             {/* Image at top-left, clickable to navigate to Homepage2 */}
-            <img 
+            {/* <img 
                 src={homen} 
                 alt="Home" 
                 title='Home'
                 className="home-icon" 
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 
-            />
+            /> */}
             <h2 className="read-heading">Expense Records</h2>
             <button className="add-button" onClick={handleAddRecord}>Add</button>
             <div className="search-bar">

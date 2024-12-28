@@ -230,7 +230,7 @@ const ExpenseAdd = () => {
                             Cancel
                         </button>
                         <button type="submit" className="submit-button">
-                            Submit
+                            Save
                         </button>
                     </div>
                 </form>

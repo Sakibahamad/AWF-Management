@@ -3,12 +3,12 @@
 .read-container {
     padding: 20px;
     background-color: #f7f7f7;
-    border-radius: 10px;
-    width: 78%; /* Set the width to 70% */
+    border-radius: 5px;
+    width: 83%; /* Set the width to 70% */
     position: fixed; /* Fix the container at the bottom right */
-    bottom: -110px; /* Adjust the distance from the bottom */
-    right: -78px; /* Adjust the distance from the right */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    bottom: -104px; /* Adjust the distance from the bottom */
+    right: -84px; /* Adjust the distance from the right */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     z-index: 950; /* Ensure it stays on top of other content */
     max-width: none; /* Remove the max-width limitation */
 }

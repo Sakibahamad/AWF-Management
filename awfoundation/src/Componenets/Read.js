@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
 import './Read.css'; 
-import homen from './Home.jpg';
+// import homen from './Home.jpg';
 import deleteIcon from './delete.png'; // Rename the import if needed
 import updateIcon from './update.png'; // Rename the import if needed
 
@@ -128,14 +128,14 @@ const Read = () => {
     return (
         <div className="read-container">
             {/* Image at top-left, clickable to navigate to Homepage2 */}
-            <img 
+            {/* <img 
                 src={homen} 
                 alt="Home" 
                 title='Home'
                 className="home-icon" 
                 onClick={handleHomeClick} 
                 style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 
-            />
+            /> */}
             <h2 className="read-heading">Student Data</h2>
             <button className="add-button" onClick={handleAddStudent}>Add</button>
             <div className="search-bar">

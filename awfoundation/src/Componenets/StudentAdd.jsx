@@ -290,7 +290,7 @@ const StudentAdd = () => {
                     </div>
                     <div className="form-actions">
                     <button type="button" className="cancel-button2" onClick={cancelForm}>Cancel</button> 
-                        <button type="submit" className="submit-button">Submit</button>
+                        <button type="submit" className="submit-button">Save</button>
                     </div>
                 </form>
             </div>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Homepage2.css';
 import profile from '../Componenets/44.jpg';
-import backgroundImage from '../Componenets/image.jpg';
+// import backgroundImage from '../Componenets/image.jpg';
 import advika from '../Componenets/Advika.png'; 
 import { useNavigate } from 'react-router-dom';
 import VerticalNav from './VerticalNav'; 
@@ -36,12 +36,12 @@ function Homepage2() {
   return (
     <div
       className="app"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+      // style={{
+      //   backgroundImage: `url(${backgroundImage})`,
+      //   backgroundSize: 'cover',
+      //   backgroundPosition: 'center',
+      //   backgroundRepeat: 'no-repeat',
+      // }}
     >
       <header className="app-header">
         <nav className="navbar">

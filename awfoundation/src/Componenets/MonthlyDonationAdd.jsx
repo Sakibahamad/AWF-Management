@@ -201,7 +201,7 @@ const MonthlyDonationAdd = () => {
                             Cancel
                         </button>
                         <button type="submit" className="create-donation-form-submit-button">
-                            Submit
+                            Save
                         </button>
                     </div>
                 </form>

@@ -200,7 +200,7 @@ const InkindAdd = () => {
                             Cancel
                         </button>
                         <button type="submit" className="create-inkind-form-submit-button">
-                            Submit
+                            Save
                         </button>
                     </div>
                 </form>

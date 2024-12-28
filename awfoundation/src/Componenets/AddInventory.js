@@ -309,7 +309,7 @@ const AddInventory = ({ handlePageChange }) => {
                             Cancel
                         </button>
                         <button type="submit" className="create-inventory-form-submit-button">
-                            Submit
+                            Save
                         </button>
                     </div>
                 </form>

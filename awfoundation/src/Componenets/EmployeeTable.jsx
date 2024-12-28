@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@fluentui/react/lib/Modal';
-import { Label } from '@fluentui/react/lib/Label';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import homen from './Home.jpg'; // Home image
 import updateIcon from './update.png'; 
 import deleteIcon from './delete.png'; 
 
@@ -132,15 +130,6 @@ const EmployeeTable = () => {
 
     return (
         <div className="read-container">
-            {/* Image at top-left, clickable to navigate to Homepage2 */}
-            <img 
-                src={homen} 
-                alt="Home" 
-                title='Home'
-                className="home-icon" 
-                onClick={handleHomeClick} 
-                style={{ cursor: 'pointer', position: 'absolute', top: '10px', left: '10px' }} 
-            />
             <h2 className="read-heading">Employee Records</h2>
             <button className="add-button" onClick={handleAddEmployee}>Add</button>
             <div className="search-bar">
